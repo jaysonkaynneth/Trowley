@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-vX-FLY">
-                                <rect key="frame" x="0.0" y="65" width="240" height="128"/>
+                                <rect key="frame" x="16" y="61" width="114" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -41,12 +41,14 @@
                     <tabBarItem key="tabBarItem" title="Pantry" image="pencil" catalog="system" id="cqW-Ql-76B"/>
                     <connections>
                         <outlet property="goodLabel" destination="nS2-lI-4fj" id="3Mw-n2-ZH2"/>
+                        <outlet property="pantryTabBarItem" destination="cqW-Ql-76B" id="lU4-ZF-8SZ"/>
                         <outlet property="trowleyLabel" destination="so8-31-5rL" id="icF-wP-sZQ"/>
+                        <outlet property="trowleyTurtleCircle" destination="zjc-vX-FLY" id="lZH-j1-V8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="-39"/>
+            <point key="canvasLocation" x="836.92307692307691" y="-39.099526066350712"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="KMQ-Df-x2W">

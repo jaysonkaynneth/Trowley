@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var goodLabel: UILabel!
     @IBOutlet weak var trowleyLabel: UILabel!
+    @IBOutlet weak var pantryTabBarItem: UITabBarItem!
+    @IBOutlet weak var trowleyTurtleCircle: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,11 @@ class ViewController: UIViewController {
         
         trowleyLabel.font = .rounded(ofSize: 34, weight: .bold)
         trowleyLabel.text = "Trowleys!"
+        
+        pantryTabBarItem.image = UIImage(named: "PantryIcon")
+        pantryTabBarItem.selectedImage = UIImage(named: "PantryIconSelected")
+        
+        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
         
     }
     
