@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */; };
+		96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */; };
 		96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42532851E1DB00A83670 /* AppDelegate.swift */; };
 		96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42552851E1DB00A83670 /* SceneDelegate.swift */; };
 		96FD42582851E1DB00A83670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42572851E1DB00A83670 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView Corner Extension.swift"; sourceTree = "<group>"; };
+		96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListViewController.swift; sourceTree = "<group>"; };
 		96FD42502851E1DB00A83670 /* Trowley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trowley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FD42532851E1DB00A83670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96FD42552851E1DB00A83670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				96FD42552851E1DB00A83670 /* SceneDelegate.swift */,
 				96FD42572851E1DB00A83670 /* ViewController.swift */,
 				96FD42592851E1DB00A83670 /* Main.storyboard */,
+				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
 				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
+				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
 				96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */,
 				96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */,
