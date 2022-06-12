@@ -41,7 +41,9 @@
                     <tabBarItem key="tabBarItem" title="Pantry" image="pencil" catalog="system" id="cqW-Ql-76B"/>
                     <connections>
                         <outlet property="goodLabel" destination="nS2-lI-4fj" id="3Mw-n2-ZH2"/>
+                        <outlet property="pantryTabBarItem" destination="cqW-Ql-76B" id="lU4-ZF-8SZ"/>
                         <outlet property="trowleyLabel" destination="so8-31-5rL" id="icF-wP-sZQ"/>
+                        <outlet property="trowleyTurtleCircle" destination="zjc-vX-FLY" id="lZH-j1-V8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
