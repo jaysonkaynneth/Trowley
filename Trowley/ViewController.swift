@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         pantryTabBarItem.image = UIImage(named: "PantryIcon")
         pantryTabBarItem.selectedImage = UIImage(named: "PantryIconSelected")
         
+        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
+        
     }
     
 
