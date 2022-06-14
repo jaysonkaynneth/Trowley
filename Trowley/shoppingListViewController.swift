@@ -16,6 +16,7 @@ class shoppingListViewController: UIViewController {
         
         listTabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait")
         listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
+    
     }
     
 
