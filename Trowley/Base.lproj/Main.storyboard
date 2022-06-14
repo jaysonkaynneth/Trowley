@@ -122,7 +122,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sH6-uA-cNM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bdH-e2-tVx">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bdH-e2-tVx" customClass="TrowleyTabBar" customModule="Trowley" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.32156862745098036" green="0.63529411764705879" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,6 +143,11 @@
             <point key="canvasLocation" x="-355" y="53"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="bdH-e2-tVx">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
