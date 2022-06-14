@@ -10,12 +10,21 @@ import UIKit
 class shoppingListViewController: UIViewController {
 
     @IBOutlet weak var listTabBarItem: UITabBarItem!
+    @IBOutlet weak var shopListLabel: UILabel!
+    @IBOutlet weak var shopHistoryLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listTabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait")
         listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
+        
+        shopListLabel.font = .rounded(ofSize: 22, weight: .bold)
+        shopListLabel.text = "MY SHOPPING LIST"
+        
+        shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
+        shopHistoryLabel.text = "MY SHOPPING HISTORY"
+        
     }
     
 
