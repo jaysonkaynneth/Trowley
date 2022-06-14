@@ -31,10 +31,13 @@ class ViewController: UIViewController {
         yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
         yourStocksLabel.text = "YOUR STOCKS"
         
-        pantryTabBarItem.image = UIImage(named: "PantryIcon")
-        pantryTabBarItem.selectedImage = UIImage(named: "PantryIconSelected")
+        pantryTabBarItem.image = UIImage(named: "IconPantry")
+        pantryTabBarItem.selectedImage = UIImage(named: "IconPantrySelected")
+        pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 5, bottom: -7, right: 0)
         
         trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
+        
+        
         
     }
     
