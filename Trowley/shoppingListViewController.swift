@@ -25,7 +25,7 @@ class shoppingListViewController: UIViewController {
         
         shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
         shopHistoryLabel.text = "MY SHOPPING HISTORY"
-        
+    
 
     
 
