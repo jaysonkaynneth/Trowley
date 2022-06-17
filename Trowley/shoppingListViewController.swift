@@ -20,11 +20,11 @@ class shoppingListViewController: UIViewController {
         listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
 
         
-        shopListLabel.font = .rounded(ofSize: 22, weight: .bold)
-        shopListLabel.text = "MY SHOPPING LIST"
+        shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopListLabel.text = "List"
         
-        shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
-        shopHistoryLabel.text = "MY SHOPPING HISTORY"
+        shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopHistoryLabel.text = "History"
         
 
     
