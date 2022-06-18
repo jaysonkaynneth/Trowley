@@ -197,6 +197,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="list.bullet.rectangle.portrait" catalog="system" id="mkZ-P8-ndC"/>
                     <connections>
+                        <outlet property="historyTable" destination="i59-nU-Ha0" id="lio-CO-YNF"/>
                         <outlet property="listTabBarItem" destination="mkZ-P8-ndC" id="1yg-N9-W2f"/>
                         <outlet property="listTable" destination="VmL-x5-VhR" id="wWE-Qg-04o"/>
                         <outlet property="shopHistoryLabel" destination="DM4-mb-mAI" id="OYt-W1-keY"/>

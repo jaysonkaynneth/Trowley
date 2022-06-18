@@ -14,16 +14,33 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as? ShoppinglListcell
-        cell?.listName.text = "Nama Barang"
-        cell?.listQuantity.text = "Qty"
-        return cell ?? UITableViewCell()
+        var cellToReturn = UITableViewCell()
+        
+        if tableView == listTable{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as? ShoppingListCell
+            cell?.listName.text = "Nama Barang"
+            cell?.listQuantity.text = "Qty"
+            cellToReturn = cell!
+            return cellToReturn
+            }
+        
+        else if tableView == historyTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? ShoppingHistoryCell
+            cell?.listDate.text = "DD/MM/YYYY"
+            cell?.listStatus.text = "Completed"
+            cellToReturn = cell!
+            return cellToReturn
+            }
+        
+        return cellToReturn
     }
 
     @IBOutlet weak var listTabBarItem: UITabBarItem!
     @IBOutlet weak var shopListLabel: UILabel!
     @IBOutlet weak var shopHistoryLabel: UILabel!
+    
     @IBOutlet weak var listTable: UITableView!
+    @IBOutlet weak var historyTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +56,12 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         listTable.delegate = self
         listTable.dataSource = self
-        self.listTable.register(UINib(nibName: "ShoppinglListcell", bundle: nil), forCellReuseIdentifier: "listCell")
-    
-
+        self.listTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
+        
+        historyTable.delegate = self
+        historyTable.dataSource = self
+        self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
+        
     }
     
 

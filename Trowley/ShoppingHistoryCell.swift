@@ -1,17 +1,16 @@
 //
-//  ShoppinglListcell.swift
+//  ShoppingHistoryCell.swift
 //  Trowley
 //
-//  Created by Ganesh Ekatata Buana on 17/06/22.
+//  Created by Ganesh Ekatata Buana on 19/06/22.
 //
 
 import UIKit
 
-class ShoppinglListcell: UITableViewCell {
+class ShoppingHistoryCell: UITableViewCell {
 
-    @IBOutlet weak var listName: UILabel!
-    @IBOutlet weak var listQuantity: UILabel!
-    @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var listDate: UILabel!
+    @IBOutlet weak var listStatus: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
