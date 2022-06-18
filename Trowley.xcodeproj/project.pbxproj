@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */; };
+		1FD31F14285C6209001F85BB /* ShoppinglListcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD31F12285C6209001F85BB /* ShoppinglListcell.swift */; };
+		1FD31F15285C6209001F85BB /* ShoppinglListcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppinglListcell.xib */; };
 		96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */; };
 		96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF7D352858843A00005C60 /* TrowleyTabBar.swift */; };
 		96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42532851E1DB00A83670 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView Corner Extension.swift"; sourceTree = "<group>"; };
+		1FD31F12285C6209001F85BB /* ShoppinglListcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglListcell.swift; sourceTree = "<group>"; };
+		1FD31F13285C6209001F85BB /* ShoppinglListcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppinglListcell.xib; sourceTree = "<group>"; };
 		96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListViewController.swift; sourceTree = "<group>"; };
 		96EF7D352858843A00005C60 /* TrowleyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrowleyTabBar.swift; sourceTree = "<group>"; };
 		96FD42502851E1DB00A83670 /* Trowley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trowley.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +76,8 @@
 				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96EF7D352858843A00005C60 /* TrowleyTabBar.swift */,
 				96FD42592851E1DB00A83670 /* Main.storyboard */,
+				1FD31F12285C6209001F85BB /* ShoppinglListcell.swift */,
+				1FD31F13285C6209001F85BB /* ShoppinglListcell.xib */,
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
 				96FD42642851E1DE00A83670 /* Info.plist */,
 				96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */,
@@ -139,6 +145,7 @@
 			files = (
 				96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */,
 				96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */,
+				1FD31F15285C6209001F85BB /* ShoppinglListcell.xib in Resources */,
 				96FD425B2851E1DB00A83670 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +159,7 @@
 			files = (
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
+				1FD31F14285C6209001F85BB /* ShoppinglListcell.swift in Sources */,
 				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
 				96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */,
