@@ -36,9 +36,6 @@ class ViewController: UIViewController {
         pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 5, bottom: -7, right: 0)
         
         trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
-        
-        
-        
     }
     
 
