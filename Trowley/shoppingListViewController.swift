@@ -71,11 +71,6 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         historyTable.delegate = self
         historyTable.dataSource = self
         self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
-
-        shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
-        shopHistoryLabel.text = "MY SHOPPING HISTORY"
-    
-
     
 
     }
