@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var pantryTabBarItem: UITabBarItem!
     @IBOutlet weak var trowleyTurtleCircle: UIImageView!
     
+    //add button (buat pindah ke modal)
+    @IBOutlet weak var addModalBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +41,17 @@ class ViewController: UIViewController {
         
         trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
     }
+    
+    
+    //segue pindah ke modal
+    @IBAction func pressBtnAddModal(_ sender: Any) {
+        performSegue(withIdentifier: "toAddModal", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination as? PantryModalViewController
+    }
+    
     
 
 }
