@@ -22,6 +22,8 @@
 		96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */; };
 		96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FD425F2851E1DE00A83670 /* Assets.xcassets */; };
 		96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */; };
+		D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */; };
+		D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0103F2861ACC100415027 /* PantryModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		96FD425F2851E1DE00A83670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96FD42622851E1DE00A83670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96FD42642851E1DE00A83670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoplistModalViewController.swift; sourceTree = "<group>"; };
+		D8A0103F2861ACC100415027 /* PantryModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
 				96FD42642851E1DE00A83670 /* Info.plist */,
 				96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */,
+				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
+				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
 			);
 			path = Trowley;
 			sourceTree = "<group>";
@@ -167,10 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */,
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
 				1FD31F14285C6209001F85BB /* ShoppingListCell.swift in Sources */,
 				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
+				D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
 				966666B62861B525000C92D1 /* PantryCell.swift in Sources */,
 				1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */,
