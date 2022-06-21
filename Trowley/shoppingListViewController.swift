@@ -51,6 +51,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
         shopListLabel.text = "List"
         
+
         shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
         shopHistoryLabel.text = "History"
         
@@ -61,7 +62,13 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         historyTable.delegate = self
         historyTable.dataSource = self
         self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
-        
+
+        shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
+        shopHistoryLabel.text = "MY SHOPPING HISTORY"
+    
+
+    
+
     }
     
 
