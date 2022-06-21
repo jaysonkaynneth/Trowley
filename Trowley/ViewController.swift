@@ -41,6 +41,36 @@ class ViewController: UIViewController {
 
 }
 
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    return data.count
+
+}
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = (tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemsTableViewCell)!
+    cell.selectionStyle = .none
+    cell.itemName.text = data[indexPath.row].name
+    
+    let datestyle = DateFormatter()
+    datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
+    datestyle.locale = NSLocale.current
+    datestyle.dateFormat = "d MMM yyyy"
+    let currDate = datestyle.string(from: Date())
+    let stringToDate = datestyle.date(from: data[indexPath.row].expiry_date ?? currDate)
+    
+    cell.expiryDate.text = datestyle.string(from: stringToDate!)
+    
+    if Date() >= stringToDate ?? Date() {
+        cell.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
+    } else {
+        cell.backgroundColor = .none
+    }
+
+    return cell
+    
+}
+
 extension UIFont {
     class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
