@@ -13,6 +13,15 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return 6
     }
     
+    //segue pindah ke modal
+    @IBAction func addModalBtn(_ sender: Any) {
+        performSegue(withIdentifier: "toShoplistModal", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination as? ShoplistModalViewController
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellToReturn = UITableViewCell()
         
@@ -51,6 +60,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
         shopListLabel.text = "List"
         
+
         shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
         shopHistoryLabel.text = "History"
         
@@ -61,7 +71,13 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         historyTable.delegate = self
         historyTable.dataSource = self
         self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
-        
+
+        shopHistoryLabel.font = .rounded(ofSize: 22, weight: .bold)
+        shopHistoryLabel.text = "MY SHOPPING HISTORY"
+    
+
+    
+
     }
     
 
