@@ -9,6 +9,9 @@ import UIKit
 
 class PantryCell: UITableViewCell {
 
+    @IBOutlet weak var itemName: UILabel!
+    @IBOutlet weak var itemExpDate: UILabel!
+    @IBOutlet weak var itemStock: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
