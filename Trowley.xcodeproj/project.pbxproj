@@ -12,6 +12,7 @@
 		1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppingListCell.xib */; };
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
+		966666B62861B525000C92D1 /* PantryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966666B52861B525000C92D1 /* PantryCell.swift */; };
 		96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */; };
 		96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF7D352858843A00005C60 /* TrowleyTabBar.swift */; };
 		96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42532851E1DB00A83670 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		1FD31F13285C6209001F85BB /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
+		966666B52861B525000C92D1 /* PantryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryCell.swift; sourceTree = "<group>"; };
 		96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListViewController.swift; sourceTree = "<group>"; };
 		96EF7D352858843A00005C60 /* TrowleyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrowleyTabBar.swift; sourceTree = "<group>"; };
 		96FD42502851E1DB00A83670 /* Trowley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trowley.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				96FD42552851E1DB00A83670 /* SceneDelegate.swift */,
 				96FD42572851E1DB00A83670 /* ViewController.swift */,
 				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
+				966666B52861B525000C92D1 /* PantryCell.swift */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
 				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96EF7D352858843A00005C60 /* TrowleyTabBar.swift */,
@@ -177,6 +180,7 @@
 				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
 				D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
+				966666B62861B525000C92D1 /* PantryCell.swift in Sources */,
 				1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */,
 				96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */,
 				96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */,
