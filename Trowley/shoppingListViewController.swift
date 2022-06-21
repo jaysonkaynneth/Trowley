@@ -13,6 +13,15 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return 6
     }
     
+    //segue pindah ke modal
+    @IBAction func addModalBtn(_ sender: Any) {
+        performSegue(withIdentifier: "toShoplistModal", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination as? ShoplistModalViewController
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellToReturn = UITableViewCell()
         
