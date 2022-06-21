@@ -451,8 +451,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="rKK-vA-D8E"/>
                     <connections>
-                        <outlet property="addBtn" destination="Pap-av-sty" id="6Dj-G1-AYt"/>
-                        <outlet property="cancelBtn" destination="032-db-KFH" id="Ior-p3-v1m"/>
                         <outlet property="itemAmountTF" destination="iYZ-fD-bsX" id="aSC-XW-nLO"/>
                         <outlet property="itemNameTF" destination="P3d-cF-hwd" id="IL1-gx-vLz"/>
                         <outlet property="itemUnitTF" destination="3iE-Pq-eDX" id="pO1-J5-mHx"/>
