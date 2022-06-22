@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "IconPantrySelected@x1.png",
+      "filename" : "Clicked.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Clicked@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Clicked@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
