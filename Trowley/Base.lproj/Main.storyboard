@@ -415,6 +415,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                <connections>
+                                    <action selector="tapAddButton" destination="xr9-MY-fO8" eventType="touchUpInside" id="pdy-ra-SZR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-Qf-MFv">
                                 <rect key="frame" x="102" y="25" width="196" height="21"/>
@@ -429,6 +432,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="rKK-vA-D8E"/>
                     <connections>
+                        <outlet property="addButton" destination="Pap-av-sty" id="VNk-tN-ZEc"/>
                         <outlet property="itemAmountTF" destination="iYZ-fD-bsX" id="aSC-XW-nLO"/>
                         <outlet property="itemNameTF" destination="P3d-cF-hwd" id="IL1-gx-vLz"/>
                         <outlet property="itemUnitTF" destination="3iE-Pq-eDX" id="pO1-J5-mHx"/>
