@@ -78,6 +78,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		96711B0F2863119A008B1E4C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				96FD42532851E1DB00A83670 /* AppDelegate.swift */,
+				96FD42552851E1DB00A83670 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		96711B10286311AD008B1E4C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96FD42572851E1DB00A83670 /* ViewController.swift */,
+				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
+				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
+				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		96711B11286311DA008B1E4C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */,
+				1FD31F13285C6209001F85BB /* ShoppingListCell.xib */,
+				966666B52861B525000C92D1 /* PantryCell.swift */,
+				1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */,
+				1FD31F12285C6209001F85BB /* ShoppingListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		96FD42472851E1DB00A83670 = {
 			isa = PBXGroup;
 			children = (
@@ -97,25 +129,17 @@
 		96FD42522851E1DB00A83670 /* Trowley */ = {
 			isa = PBXGroup;
 			children = (
+				96711B11286311DA008B1E4C /* Cell */,
+				96711B10286311AD008B1E4C /* ViewController */,
+				96711B0F2863119A008B1E4C /* Delegate */,
 				96711B0E2862FF01008B1E4C /* Model */,
-				96FD42532851E1DB00A83670 /* AppDelegate.swift */,
-				96FD42552851E1DB00A83670 /* SceneDelegate.swift */,
-				96FD42572851E1DB00A83670 /* ViewController.swift */,
-				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
-				966666B52861B525000C92D1 /* PantryCell.swift */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
-				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96EF7D352858843A00005C60 /* TrowleyTabBar.swift */,
 				96FD42592851E1DB00A83670 /* Main.storyboard */,
-				1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */,
-				1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */,
-				1FD31F12285C6209001F85BB /* ShoppingListCell.swift */,
-				1FD31F13285C6209001F85BB /* ShoppingListCell.xib */,
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
+				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96FD42642851E1DE00A83670 /* Info.plist */,
 				96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */,
-				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
-				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
 			);
 			path = Trowley;
 			sourceTree = "<group>";
