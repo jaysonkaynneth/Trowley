@@ -105,6 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
     
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
+        cell.itemStock.text = "wow"
     
         if Date() >= stringToDate ?? Date() {
             cell.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
@@ -130,6 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView,
                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
        {
+           
            let deleteItem = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                
                DispatchQueue.main.async {
