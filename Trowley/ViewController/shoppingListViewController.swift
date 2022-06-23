@@ -10,7 +10,7 @@ import UIKit
 class shoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return data.count
     }
     
     //segue pindah ke modal
@@ -23,14 +23,27 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         var cellToReturn = UITableViewCell()
         
         if tableView == listTable{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as? ShoppingListCell
-            cell?.listName.text = "Nama Barang"
-            cell?.listQuantity.text = "Qty"
-            cellToReturn = cell!
+            
+            let cell = (tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ShoppingListCell)!
+            
+            cell.listName.text = data[indexPath.row].name
+            let tempAmount = data[indexPath.row].amount
+            let tempUnit = data[indexPath.row].unit
+            cell.listQuantity.text = "\(String(tempAmount)) \(tempUnit)"
+            cellToReturn = cell
+
             return cellToReturn
+            
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as? ShoppingListCell
+//            cell?.listName.text = "Nama Barang"
+//            cell?.listQuantity.text = "Qty"
+//            cellToReturn = cell!
+//            return cellToReturn
             }
         
         else if tableView == historyTable {
@@ -50,6 +63,31 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
+    
+    var data = [Food]()
+    var name: String?
+    var amount: Int?
+    var unit: String?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    func fetchItem() {
+        do {
+            
+            data = try context.fetch(Food.fetchRequest())
+            DispatchQueue.main.async {
+                self.listTable.reloadData()
+                        }
+                
+            } catch {
+                
+        }
+    }
+    
+    func updateView() {
+        fetchItem()
+        listTable.reloadData()
+        historyTable.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +110,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         historyTable.dataSource = self
         self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
     
-
+        updateView()
     }
     
 

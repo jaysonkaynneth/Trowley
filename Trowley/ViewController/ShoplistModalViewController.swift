@@ -62,19 +62,15 @@ class ShoplistModalViewController: UIViewController {
             name = itemNameTF.text ?? ""
             amount = Int(itemAmountTF.text!) ?? 0
             unit = itemUnitTF.text ?? ""
-                let newFood = Food(context: context)
+            
+            let newFood = Food(context: context)
                 newFood.name = name
                 newFood.amount = Int16(amount)
                 newFood.unit = unit 
                 newFood.isBought = false
-            
-            print (newFood.name!)
-            print (newFood.amount)
-            print (newFood.unit!)
-            print (newFood.isBought)
+    
 //            }
           
-            
             do
             {
                 try context.save()
@@ -87,8 +83,13 @@ class ShoplistModalViewController: UIViewController {
             
             catch
             {
-                
+                let alert = UIAlertController(title: "Fail", message: "Please fill all fields.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                present(alert, animated: true)
             }
+            
         }
     
     
