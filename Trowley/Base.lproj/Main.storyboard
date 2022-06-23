@@ -70,22 +70,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18u-JW-y13">
-                                <rect key="frame" x="16" y="127" width="67" height="31"/>
+                                <rect key="frame" x="13" y="127" width="99" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Kitchen"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-NN-bIe">
-                                <rect key="frame" x="162" y="127" width="67" height="31"/>
+                                <rect key="frame" x="147" y="127" width="82" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Fridge"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-mq-HBa">
-                                <rect key="frame" x="303" y="127" width="67" height="31"/>
+                                <rect key="frame" x="253" y="127" width="128" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Cupboard"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Pantry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h0-Ja-md7">
                                 <rect key="frame" x="16" y="61" width="366" height="45"/>
@@ -100,6 +100,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Pantry" image="pencil" catalog="system" id="cqW-Ql-76B"/>
                     <connections>
+                        <outlet property="cupboardButt" destination="hxg-mq-HBa" id="I1k-9Q-E8I"/>
+                        <outlet property="fridgeButt" destination="kh7-NN-bIe" id="uK2-lR-ekT"/>
+                        <outlet property="kitchenButt" destination="18u-JW-y13" id="uUu-10-6sM"/>
                         <outlet property="pantryTabBarItem" destination="cqW-Ql-76B" id="lU4-ZF-8SZ"/>
                         <outlet property="pantryTableView" destination="gbR-4h-cbO" id="wWc-Dr-R9P"/>
                         <outlet property="yourStocksLabel" destination="0h0-Ja-md7" id="yRA-q8-jRN"/>
@@ -331,12 +334,23 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ek-IV-zIK">
+                                <rect key="frame" x="324" y="21" width="50" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                <connections>
+                                    <action selector="addButton:" destination="Gck-W6-Vej" eventType="touchUpInside" id="bJu-iW-RBo"/>
+                                    <segue destination="WhT-0M-nmA" kind="unwind" unwindAction="unwindToMain:" id="pxR-wS-MS7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LqH-MJ-s82"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="sJv-HM-aYz"/>
                     <connections>
+                        <outlet property="addBtn" destination="8ek-IV-zIK" id="4BH-y4-ylp"/>
                         <outlet property="itemAmountTF" destination="VfL-f8-1Wk" id="yod-Zy-ZLy"/>
                         <outlet property="itemExpDatePicker" destination="xks-7E-7JK" id="jC2-b5-MmT"/>
                         <outlet property="itemLocationPicker" destination="tJ9-kI-XpJ" id="blh-O1-6b2"/>
@@ -345,6 +359,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyX-Ag-7f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="WhT-0M-nmA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1678" y="-39"/>
         </scene>
