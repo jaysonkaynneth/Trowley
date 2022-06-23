@@ -17,10 +17,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
     
-    
+
+    @IBOutlet weak var kitchenButt: UIButton!
+    @IBOutlet weak var fridgeButt: UIButton!
+    @IBOutlet weak var cupboardButt: UIButton!
     
     @IBOutlet weak var pantryTableView: UITableView!
-
     @IBOutlet weak var yourStocksLabel: UILabel!
     @IBOutlet weak var pantryTabBarItem: UITabBarItem!
 //    @IBOutlet weak var trowleyTurtleCircle: UIImageView!
@@ -33,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pantryTableView.reloadData()
 //        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
 //        goodLabel.text = "Good Day,"
 //
@@ -47,9 +49,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        yourStocksLabel.text = "YOUR STOCKS"
 //        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
                 
+        kitchenButt.setTitle("Kitchen", for: .normal)
+        
+        fridgeButt.setTitle("Fridge", for: .normal)
+        
+        cupboardButt.setTitle("Cupboard", for: .normal)
+
+        
+        
         
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
+        
+        yourStocksLabel.font = .rounded(ofSize: 32, weight: .bold)
+        yourStocksLabel.text = "My Pantry"
         
         pantryTabBarItem.image = UIImage(named: "IconPantry")
         pantryTabBarItem.selectedImage = UIImage(named: "IconPantrySelected")
@@ -105,6 +118,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
+            print("unwind")
         }
     }
     

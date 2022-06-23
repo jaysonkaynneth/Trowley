@@ -9,6 +9,7 @@ import UIKit
 
 class PantryModalViewController: UIViewController {
     
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemAmountTF: UITextField!
     @IBOutlet weak var itemUnitTF: UITextField!
@@ -30,13 +31,8 @@ class PantryModalViewController: UIViewController {
             target: self,
             action: #selector(dismissMe))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Add",
-            style: .done,
-            target: self,
-            action: #selector(addbuttons))
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        addBtn.isEnabled = false
         itemNameTF.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
         itemAmountTF.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
         itemUnitTF.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
@@ -49,10 +45,10 @@ class PantryModalViewController: UIViewController {
     @objc func textFieldDidChange(_ sender: UITextField) {
         if itemNameTF.text == "" || itemAmountTF.text == "" || itemUnitTF.text == "" {
 
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            addBtn.isEnabled = false
            }else{
 
-               self.navigationItem.rightBarButtonItem?.isEnabled = true
+               addBtn.isEnabled = true
            }
        }
     
@@ -63,14 +59,9 @@ class PantryModalViewController: UIViewController {
         datestyle.dateFormat = "d MMM yyyy"
         date = datestyle.string(from: itemExpDatePicker.date)
     }
-
-    
-    @IBAction func pressCancelBtn(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
     
     
-    @objc func addbuttons() {
+    @IBAction func addButton(_ sender: Any) {
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
@@ -89,6 +80,7 @@ class PantryModalViewController: UIViewController {
             } catch {
                 
             }
+        self.dismiss(animated: true)
     }
     /*
     // MARK: - Navigation
