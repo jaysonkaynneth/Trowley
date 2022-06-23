@@ -317,7 +317,7 @@
         <!--Title-->
         <scene sceneID="oSx-mE-i9I">
             <objects>
-                <viewController id="xr9-MY-fO8" customClass="ShoplistModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddList" id="xr9-MY-fO8" customClass="ShoplistModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="omS-1P-3cg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

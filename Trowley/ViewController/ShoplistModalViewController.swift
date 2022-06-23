@@ -15,6 +15,7 @@ class ShoplistModalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     
+    var editItem : Food?
     var name: String = ""
     var amount: Int = 0
     var unit: String = ""
@@ -48,17 +49,16 @@ class ShoplistModalViewController: UIViewController {
     @IBAction func tapAddButton()
         {
             
-//            if editItem != nil
-//            {
-//                editItem?.name = name
-//                editItem?.price = price
-//                editItem?.picture = pickedImage?.jpegData(compressionQuality: 0.15)
-//                editItem?.market = markets[marketSelected]
-//
-//            }
-//
-//            else
-//            {
+            if editItem != nil
+            {
+                editItem?.name = name
+                editItem?.amount = Int16(amount)
+                editItem?.unit = unit
+                editItem?.isBought = false
+            }
+
+            else
+            {
             name = itemNameTF.text ?? ""
             amount = Int(itemAmountTF.text!) ?? 0
             unit = itemUnitTF.text ?? ""
@@ -69,7 +69,7 @@ class ShoplistModalViewController: UIViewController {
                 newFood.unit = unit 
                 newFood.isBought = false
     
-//            }
+            }
           
             do
             {

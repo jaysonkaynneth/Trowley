@@ -83,6 +83,44 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         return cellToReturn
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {
+            (action, view, completionHandler) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddList") as! ShoplistModalViewController
+            vc.editItem = self.data[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+            print ("sampe")
+        }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            
+            let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                
+                let deleteObject = self.data[indexPath.row]
+                self.context.delete(deleteObject)
+    
+                do
+                {
+                    try self.context.save()
+                    self.updateView()
+                }
+                
+                catch
+                {
+                    
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                alert.dismiss(animated: true)
+            }))
+            
+            self.present(alert, animated: true)
+        }
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+    }
 
     @IBOutlet weak var listTabBarItem: UITabBarItem!
     @IBOutlet weak var shopListLabel: UILabel!
