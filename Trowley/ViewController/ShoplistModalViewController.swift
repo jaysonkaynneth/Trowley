@@ -15,6 +15,20 @@ class ShoplistModalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     
+    @IBAction func checkName(){
+        name = itemNameTF.text ?? ""
+        checkForm()
+    }
+    @IBAction func checkAmount(){
+        amount = Int(itemAmountTF.text!) ?? 0
+        checkForm()
+    }
+    @IBAction func checkUnit(){
+        unit = itemUnitTF.text ?? ""
+        checkForm()
+    }
+    
+    var editItem : Food?
     var name: String = ""
     var amount: Int = 0
     var unit: String = ""
@@ -23,7 +37,18 @@ class ShoplistModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if editItem != nil{
+            itemNameTF.text = editItem?.name
+            let tempAmount = editItem?.amount ?? 0
+            itemAmountTF.text = String(tempAmount)
+            itemUnitTF.text = editItem?.unit
+            addButton.setTitle("Edit", for: .normal)
+            
+            name = itemNameTF.text ?? ""
+            amount = Int(itemAmountTF.text!) ?? 0
+            unit = itemUnitTF.text ?? ""
+        }
+        checkForm()
         // Do any additional setup after loading the view.
     }
     
@@ -48,33 +73,28 @@ class ShoplistModalViewController: UIViewController {
     @IBAction func tapAddButton()
         {
             
-//            if editItem != nil
-//            {
-//                editItem?.name = name
-//                editItem?.price = price
-//                editItem?.picture = pickedImage?.jpegData(compressionQuality: 0.15)
-//                editItem?.market = markets[marketSelected]
-//
-//            }
-//
-//            else
-//            {
+            if editItem != nil
+            {
+                editItem?.name = name
+                editItem?.amount = Int16(amount)
+                editItem?.unit = unit
+                editItem?.isBought = false
+            }
+
+            else
+            {
             name = itemNameTF.text ?? ""
             amount = Int(itemAmountTF.text!) ?? 0
             unit = itemUnitTF.text ?? ""
-                let newFood = Food(context: context)
+            
+            let newFood = Food(context: context)
                 newFood.name = name
                 newFood.amount = Int16(amount)
                 newFood.unit = unit 
                 newFood.isBought = false
-            
-            print (newFood.name!)
-            print (newFood.amount)
-            print (newFood.unit!)
-            print (newFood.isBought)
-//            }
+    
+            }
           
-            
             do
             {
                 try context.save()
@@ -87,8 +107,13 @@ class ShoplistModalViewController: UIViewController {
             
             catch
             {
-                
+                let alert = UIAlertController(title: "Fail", message: "Please fill all fields.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                present(alert, animated: true)
             }
+            
         }
     
     
