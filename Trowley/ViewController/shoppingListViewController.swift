@@ -9,8 +9,8 @@ import UIKit
 
 class shoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+    override func viewWillAppear(_ animated: Bool) {
+        updateView()
     }
     
     //segue pindah ke modal
@@ -20,6 +20,25 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination as? ShoplistModalViewController
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == listTable{
+            data[indexPath.row].isBought.toggle()
+            
+            do {
+                try context.save()
+                tableView.reloadData()
+            }
+            catch {
+                
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,7 +53,15 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             cell.listName.text = data[indexPath.row].name
             let tempAmount = data[indexPath.row].amount
             let tempUnit = data[indexPath.row].unit
-            cell.listQuantity.text = "\(String(tempAmount)) \(tempUnit)"
+            cell.listQuantity.text = "\(String(tempAmount)) \(tempUnit ?? "")"
+            
+            if data[indexPath.row].isBought == true{
+                cell.checkImage.tintColor = UIColor.systemGreen
+            }
+            else{
+                cell.checkImage.tintColor = UIColor.lightGray
+            }
+            
             cellToReturn = cell
 
             return cellToReturn
