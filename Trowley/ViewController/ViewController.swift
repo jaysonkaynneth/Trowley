@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pantryTableView.reloadData()
 //        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
 //        goodLabel.text = "Good Day,"
 //
