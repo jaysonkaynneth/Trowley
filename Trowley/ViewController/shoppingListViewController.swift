@@ -19,7 +19,13 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination as? ShoplistModalViewController
+        
+        if segue.identifier == "AddModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! ShoplistModalViewController
+            destinationVC.editItem = Foods
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,12 +71,6 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             cellToReturn = cell
 
             return cellToReturn
-            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as? ShoppingListCell
-//            cell?.listName.text = "Nama Barang"
-//            cell?.listQuantity.text = "Qty"
-//            cellToReturn = cell!
-//            return cellToReturn
             }
         
         else if tableView == historyTable {
@@ -84,14 +84,27 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return cellToReturn
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+
+        // Create a variable that you want to send
+        if segue.identifier == "AddModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! ShoplistModalViewController
+            destinationVC.editItem = Foods
+        }
+        
+        }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
             (action, view, completionHandler) in
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddList") as! ShoplistModalViewController
-            vc.editItem = self.data[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
-            print ("sampe")
+            
+            self.index = indexPath.row
+            
+            self.performSegue(withIdentifier: "AddModal", sender: self)
         }
+        
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             
@@ -134,6 +147,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     var amount: Int?
     var unit: String?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var index: Int?
     
     func fetchItem() {
         do {

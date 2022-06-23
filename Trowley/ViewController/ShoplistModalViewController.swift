@@ -15,6 +15,19 @@ class ShoplistModalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     
+    @IBAction func checkName(){
+        name = itemNameTF.text ?? ""
+        checkForm()
+    }
+    @IBAction func checkAmount(){
+        amount = Int(itemAmountTF.text!) ?? 0
+        checkForm()
+    }
+    @IBAction func checkUnit(){
+        unit = itemUnitTF.text ?? ""
+        checkForm()
+    }
+    
     var editItem : Food?
     var name: String = ""
     var amount: Int = 0
@@ -24,7 +37,18 @@ class ShoplistModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if editItem != nil{
+            itemNameTF.text = editItem?.name
+            let tempAmount = editItem?.amount ?? 0
+            itemAmountTF.text = String(tempAmount)
+            itemUnitTF.text = editItem?.unit
+            addButton.setTitle("Edit", for: .normal)
+            
+            name = itemNameTF.text ?? ""
+            amount = Int(itemAmountTF.text!) ?? 0
+            unit = itemUnitTF.text ?? ""
+        }
+        checkForm()
         // Do any additional setup after loading the view.
     }
     

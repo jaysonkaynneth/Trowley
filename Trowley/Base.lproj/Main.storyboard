@@ -156,8 +156,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addModalBtn:" destination="08c-un-zXR" eventType="touchUpInside" id="SzV-t0-GKo"/>
-                                    <segue destination="xr9-MY-fO8" kind="presentation" identifier="toShoplistModal" id="QNt-k6-Oqf"/>
+                                    <action selector="addModalBtn:" destination="08c-un-zXR" eventType="touchUpInside" id="coK-lt-J8m"/>
+                                    <segue destination="xr9-MY-fO8" kind="presentation" identifier="toShoplistModal" id="5qa-DL-ej8"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VmL-x5-VhR">
@@ -183,6 +183,7 @@
                         <outlet property="listTable" destination="VmL-x5-VhR" id="wWE-Qg-04o"/>
                         <outlet property="shopHistoryLabel" destination="DM4-mb-mAI" id="OYt-W1-keY"/>
                         <outlet property="shopListLabel" destination="j9l-hE-CxR" id="zZB-22-wmN"/>
+                        <segue destination="xr9-MY-fO8" kind="presentation" identifier="AddModal" id="lXk-wl-42O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlm-Sg-KF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -348,18 +349,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkName" destination="xr9-MY-fO8" eventType="editingDidEnd" id="D0P-aa-DVc"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYZ-fD-bsX">
                                 <rect key="frame" x="122" y="151" width="252" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="checkAmount" destination="xr9-MY-fO8" eventType="editingDidEnd" id="8ch-rk-ywq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount Unit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3iE-Pq-eDX">
                                 <rect key="frame" x="122" y="193" width="252" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkUnit" destination="xr9-MY-fO8" eventType="editingDidEnd" id="hUl-cg-9p7"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqt-H5-Ob1">
                                 <rect key="frame" x="38" y="29" width="24" height="14"/>
@@ -414,6 +424,9 @@
             <size key="intrinsicContentSize" width="-1" height="83"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="5qa-DL-ej8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
