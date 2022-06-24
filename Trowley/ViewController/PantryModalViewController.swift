@@ -13,6 +13,7 @@ class PantryModalViewController: UIViewController {
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemAmountTF: UITextField!
     @IBOutlet weak var itemUnitTF: UITextField!
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var itemExpDatePicker: UIDatePicker!
     @IBOutlet weak var itemLocationPicker: UISegmentedControl!
     
@@ -29,14 +30,6 @@ class PantryModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Add Item"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Cancel",
-            style: .done,
-            target: self,
-            action: #selector(dismissMe))
-        
         if editItem != nil{
             itemNameTF.text = editItem?.name
             let tempAmount = editItem?.amount ?? 0
@@ -47,6 +40,10 @@ class PantryModalViewController: UIViewController {
         
         validator()
         
+    }
+    
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     func validator() {
@@ -79,9 +76,7 @@ class PantryModalViewController: UIViewController {
 
     
  
-    @objc func dismissMe() {
-        self.dismiss(animated: true)
-    }
+
     
     @IBAction func tapKeypad(_ sender: Any) {
             view.endEditing(true)

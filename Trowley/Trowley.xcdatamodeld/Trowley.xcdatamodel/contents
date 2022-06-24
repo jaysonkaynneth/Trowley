@@ -8,24 +8,24 @@
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="foods" inverseEntity="List"/>
     </entity>
-    <entity name="ItemList" representedClassName="ItemList" syncable="YES" codeGenerationType="class">
+    <entity name="ItemList" representedClassName=".ItemList" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isBought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="listID" optional="YES"/>
+        <attribute name="listID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="itemlist" inverseEntity="List"/>
     </entity>
     <entity name="List" representedClassName=".List" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="listID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="list" inverseEntity="Food"/>
+        <relationship name="itemlist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemList" inverseName="list" inverseEntity="ItemList"/>
     </entity>
     <elements>
-        <element name="Food" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="ItemList" positionX="-54" positionY="54" width="128" height="104"/>
+        <element name="Food" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="ItemList" positionX="-54" positionY="54" width="128" height="119"/>
         <element name="List" positionX="-54" positionY="45" width="128" height="89"/>
     </elements>
 </model>
