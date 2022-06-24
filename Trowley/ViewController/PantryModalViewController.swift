@@ -17,10 +17,12 @@ class PantryModalViewController: UIViewController {
     @IBOutlet weak var itemLocationPicker: UISegmentedControl!
     
     var date: String?
-    var name: String = ""
-    var amount: Int = 0
-    var unit: String = ""
+    var editItem : Food?
+    var itemName: String = ""
+    var itemAmount: Int = 0
+    var itemUnit: String = ""
     var location: String = ""
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -34,6 +36,14 @@ class PantryModalViewController: UIViewController {
             style: .done,
             target: self,
             action: #selector(dismissMe))
+        
+        if editItem != nil{
+            itemNameTF.text = editItem?.name
+            let tempAmount = editItem?.amount ?? 0
+            itemAmountTF.text = String(tempAmount)
+            itemUnitTF.text = editItem?.unit
+            addBtn.setTitle("Edit", for: .normal)
+        }
         
         validator()
         
@@ -72,7 +82,10 @@ class PantryModalViewController: UIViewController {
     @objc func dismissMe() {
         self.dismiss(animated: true)
     }
-
+    
+    @IBAction func tapKeypad(_ sender: Any) {
+            view.endEditing(true)
+        }
     
     @IBAction func expDateSelect(_ sender: Any) {
         let datestyle = DateFormatter()
@@ -83,16 +96,26 @@ class PantryModalViewController: UIViewController {
     }
     
     @IBAction func addBtn(_ sender: Any) {
-        let datestyle = DateFormatter()
-        datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
-        datestyle.locale = NSLocale.current
-        datestyle.dateFormat = "d MMM yyyy"
-        let addItem = Food(context: self.context)
-        addItem.name = itemNameTF.text
-        addItem.expiry = date
-        addItem.amount = Int16(amount)
-        addItem.unit = itemUnitTF.text
-//        addItem.location = itemLocationPicker
+        if editItem != nil
+        {
+            editItem?.name = itemNameTF.text
+            editItem?.amount = Int16(itemAmountTF.text!) ?? 0
+            editItem?.unit = itemUnitTF.text
+        }
+
+        else
+        {
+            let datestyle = DateFormatter()
+            datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
+            datestyle.locale = NSLocale.current
+            datestyle.dateFormat = "d MMM yyyy"
+            let addItem = Food(context: self.context)
+            addItem.name = itemNameTF.text
+            addItem.expiry = date
+            addItem.amount = Int16(itemAmountTF.text!) ?? 0
+            addItem.unit = itemUnitTF.text
+    //        addItem.location = itemLocationPicker
+        }
         
         do
         {

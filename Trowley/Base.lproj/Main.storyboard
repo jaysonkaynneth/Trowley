@@ -67,22 +67,23 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+"/>
                                 <connections>
                                     <action selector="addModalBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="TUM-dZ-uoN"/>
+                                    <segue destination="Gck-W6-Vej" kind="presentation" id="BUA-gh-Emo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18u-JW-y13">
-                                <rect key="frame" x="13" y="127" width="99" height="32"/>
+                                <rect key="frame" x="13" y="127" width="109" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Kitchen"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-NN-bIe">
-                                <rect key="frame" x="147" y="127" width="82" height="31"/>
+                                <rect key="frame" x="130" y="127" width="99" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Fridge"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-mq-HBa">
-                                <rect key="frame" x="253" y="127" width="128" height="31"/>
+                                <rect key="frame" x="237" y="127" width="144" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cupboard"/>
@@ -308,6 +309,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LqH-MJ-s82"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Egs-ei-RKp" appends="YES" id="015-sB-ZiH"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="sJv-HM-aYz"/>
                     <connections>
@@ -321,6 +326,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyX-Ag-7f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="WhT-0M-nmA" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Egs-ei-RKp">
+                    <connections>
+                        <action selector="tapKeypad:" destination="Gck-W6-Vej" id="hCP-Q7-Nmx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1676.9230769230769" y="-39.099526066350712"/>
         </scene>
@@ -414,6 +424,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mdK-Od-Wlx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="egl-jV-qWx" appends="YES" id="NQZ-vv-KSj"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="rKK-vA-D8E"/>
                     <connections>
@@ -424,6 +438,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v36-tw-O0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="egl-jV-qWx">
+                    <connections>
+                        <action selector="tapKeypad:" destination="xr9-MY-fO8" id="Q0j-v5-0vA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1658" y="616"/>
         </scene>
@@ -434,7 +453,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="5qa-DL-ej8"/>
+        <segue reference="lXk-wl-42O"/>
+        <segue reference="uMg-z5-OIY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
