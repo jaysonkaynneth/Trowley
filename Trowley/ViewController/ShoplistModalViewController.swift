@@ -82,7 +82,6 @@ class ShoplistModalViewController: UIViewController {
                 editItem?.name = name
                 editItem?.amount = Int16(amount)
                 editItem?.unit = unit
-                editItem?.isBought = false
             }
 
             else

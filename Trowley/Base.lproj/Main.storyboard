@@ -412,6 +412,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add"/>
                                 <connections>
                                     <action selector="tapAddButton" destination="xr9-MY-fO8" eventType="touchUpInside" id="pdy-ra-SZR"/>
+                                    <segue destination="rc5-Vt-O6f" kind="unwind" unwindAction="unwindToMain:" id="eYR-nO-I4k"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-Qf-MFv">
@@ -438,6 +439,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v36-tw-O0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rc5-Vt-O6f" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="egl-jV-qWx">
                     <connections>
                         <action selector="tapKeypad:" destination="xr9-MY-fO8" id="Q0j-v5-0vA"/>

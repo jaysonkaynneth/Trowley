@@ -132,9 +132,15 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             self.present(alert, animated: true)
         }
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
-
+    
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        if let sourceViewController = unwindSegue.source as? ShoplistModalViewController {
+            updateView()
+        }
+    }
+    
     @IBOutlet weak var listTabBarItem: UITabBarItem!
     @IBOutlet weak var shopListLabel: UILabel!
     @IBOutlet weak var shopHistoryLabel: UILabel!
