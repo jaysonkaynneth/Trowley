@@ -104,7 +104,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             self.performSegue(withIdentifier: "AddModal", sender: self)
         }
-        
+        editAction.image = UIImage(systemName: "square.and.pencil")
+        editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             
@@ -132,6 +133,9 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             self.present(alert, animated: true)
         }
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+                                           
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     

@@ -13,7 +13,7 @@
     <entity name="ItemList" representedClassName="ItemList" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isBought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="listID" optional="YES"/>
+        <attribute name="listID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
     </entity>
