@@ -28,6 +28,10 @@ class ShoplistModalViewController: UIViewController {
         checkForm()
     }
     
+    @IBAction func tapKeypad(_ sender: Any) {
+            view.endEditing(true)
+        }
+    
     var editItem : Food?
     var name: String = ""
     var amount: Int = 0

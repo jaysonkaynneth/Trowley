@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var date: String?
     var amount: Double?
     var unit: String?
+    var index: Int?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
 
@@ -103,6 +104,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
         let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
+        
+        let tempAmount = data[indexPath.row].amount
+        let tempUnit = data[indexPath.row].unit
+        cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
     
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
     
@@ -118,7 +123,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
-            print("unwind")
         }
     }
     
@@ -130,6 +134,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView,
                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
        {
+           let editAction = UIContextualAction(style: .normal, title: "Edit") {
+               (action, view, completionHandler) in
+               
+               self.index = indexPath.row
+               
+               self.performSegue(withIdentifier: "toAddModal", sender: self)
+           }
+           
            let deleteItem = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                
                DispatchQueue.main.async {
@@ -139,7 +151,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                success(true)
            })
            deleteItem.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
-           return UISwipeActionsConfiguration(actions: [deleteItem])
+           return UISwipeActionsConfiguration(actions: [editAction, deleteItem])
        }
     
     func showDeleteWarning(for indexPath: IndexPath) {
@@ -181,6 +193,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        segue.destination as? PantryModalViewController
 //    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toAddModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! PantryModalViewController
+            destinationVC.editItem = Foods
+        }
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+
+        // Create a variable that you want to send
+        if segue.identifier == "toAddModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! PantryModalViewController
+            destinationVC.editItem = Foods
+        }
+        
+    }
     @IBAction func addModalBtn() {
         let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
         addStockVC.modalPresentationStyle = .popover
@@ -189,8 +222,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         present(navigationController, animated: true)
     }
-    
-
 }
 
 
@@ -208,4 +239,5 @@ extension UIFont {
         return font
     }
 }
+
 
