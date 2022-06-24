@@ -134,13 +134,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView,
                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
        {
-           let editAction = UIContextualAction(style: .normal, title: "Edit") {
-               (action, view, completionHandler) in
-               
-               self.index = indexPath.row
-               
-               self.performSegue(withIdentifier: "toAddModal", sender: self)
-           }
            
            let deleteItem = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                
@@ -150,8 +143,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                success(true)
            })
-           deleteItem.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
-           return UISwipeActionsConfiguration(actions: [editAction, deleteItem])
+           deleteItem.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+           
+           
+           let editAction = UIContextualAction(style: .normal, title: "Edit") {
+               (action, view, completionHandler) in
+               
+               self.index = indexPath.row
+               
+               self.performSegue(withIdentifier: "toAddModal", sender: self)
+           }
+           editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
+           return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
        }
     
     func showDeleteWarning(for indexPath: IndexPath) {
