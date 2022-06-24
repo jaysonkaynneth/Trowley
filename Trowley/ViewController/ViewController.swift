@@ -52,16 +52,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
         kitchenButt.setTitle("Kitchen", for: .normal)
         kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
         fridgeButt.setTitle("Fridge", for: .normal)
         fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
         cupboardButt.setTitle("Cupboard", for: .normal)
         cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
 
-        
-        
-        
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         
@@ -89,6 +89,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+            updateView()
+        }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return data.count
@@ -99,6 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
+        
         cell.itemName.text = data[indexPath.row].name
         
         let datestyle = DateFormatter()
@@ -107,20 +112,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
         let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
-        
+        cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
+            
         let tempAmount = data[indexPath.row].amount
         let tempUnit = data[indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
-    
-        cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
     
         if Date() >= stringToDate ?? Date() {
             cell.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
         } else {
             cell.backgroundColor = .none
         }
-
         return cell
+        
     }
     
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
@@ -221,12 +225,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     @IBAction func addModalBtn() {
-        let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
-        addStockVC.modalPresentationStyle = .popover
-
-        let navigationController = UINavigationController(rootViewController: addStockVC)
+//        let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
+//        addStockVC.modalPresentationStyle = .popover
+//
+//        let navigationController = UINavigationController(rootViewController: addStockVC)
+//
+//        present(navigationController, animated: true)
         
-        present(navigationController, animated: true)
+        performSegue(withIdentifier: "toPantryModal", sender: nil)
     }
 }
 
