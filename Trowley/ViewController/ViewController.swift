@@ -51,10 +51,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
                 
         kitchenButt.setTitle("Kitchen", for: .normal)
+        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
         
         fridgeButt.setTitle("Fridge", for: .normal)
+        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
         
         cupboardButt.setTitle("Cupboard", for: .normal)
+        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
 
         
         
