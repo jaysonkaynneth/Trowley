@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,8 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var amount: Double?
     var unit: String?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-
     
     
     
@@ -30,6 +29,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //add button (buat pindah ke modal)
 //    @IBOutlet weak var addModalBtn: UIButton!
+    
+    //notif
+    let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
 //        yourStocksLabel.text = "YOUR STOCKS"
 //        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
+        
+        //notification permission
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { permissionGranted, error in
+            if(!permissionGranted){
+                print("Permission Denied")
+            }
+        }
                 
         
         pantryTableView.delegate = self
