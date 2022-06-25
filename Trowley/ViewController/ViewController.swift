@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,7 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var index: Int?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-
+    //notif
+    let notificationCenter = UNUserNotificationCenter.current()
     
 
     @IBOutlet weak var kitchenButt: UIButton!
@@ -36,6 +38,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //notification permission---
+        notificationCenter.requestAuthorization(options: [.sound, .alert]) { permisssionGranted, error in
+            if (!permisssionGranted){
+                print("permission denied")
+            }
+        }
+        //-------
+        
         pantryTableView.reloadData()
 //        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
 //        goodLabel.text = "Good Day,"

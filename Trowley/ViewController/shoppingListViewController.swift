@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class shoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,6 +168,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         listTable.reloadData()
         historyTable.reloadData()
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
