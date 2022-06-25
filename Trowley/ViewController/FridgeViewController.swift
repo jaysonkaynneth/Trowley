@@ -1,14 +1,13 @@
 //
-//  ViewController.swift
+//  FridgeViewController.swift
 //  Trowley
 //
-//  Created by Jason Kenneth on 09/06/22.
+//  Created by Jason Kenneth on 25/06/22.
 //
 
 import UIKit
-import UserNotifications
  
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var data = [Food]()
     var date: String?
@@ -112,7 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
+        let cell = (tableView.dequeueReusableCell(withIdentifier: "FridgeStockCell", for: indexPath) as? FridgeCell)!
         cell.selectionStyle = .none
         
         cell.itemName.text = data[indexPath.row].name
@@ -246,21 +245,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "toPantryModal", sender: nil)
     }
 }
-
-
-
-extension UIFont {
-    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
-        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
-        let font: UIFont
-        
-        if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
-            font = UIFont(descriptor: descriptor, size: size)
-        } else {
-            font = systemFont
-        }
-        return font
-    }
-}
-
-

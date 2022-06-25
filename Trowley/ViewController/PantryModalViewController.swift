@@ -42,7 +42,8 @@ class PantryModalViewController: UIViewController {
             addBtn.setTitle("Edit", for: .normal)
         }
         
-        validator()
+//        validator()
+        checkForm()
         
     }
     
@@ -50,36 +51,60 @@ class PantryModalViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    func validator() {
-        addBtn.isEnabled = false //hidden okButton
-        itemNameTF.addTarget(self, action: #selector(textFieldCheck),
-                                    for: .editingChanged)
-        itemAmountTF.addTarget(self, action: #selector(textFieldCheck),
-                                    for: .editingChanged)
-        itemUnitTF.addTarget(self, action: #selector(textFieldCheck),
-                                    for: .editingChanged)
-       }
-    
-    @objc func textFieldCheck(sender: UITextField) {
-
-        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-
-        guard
-          let itemName = itemNameTF.text, !itemName.isEmpty,
-          let itemAmount = itemAmountTF.text, !itemAmount.isEmpty,
-          let itemUnit = itemUnitTF.text, !itemUnit.isEmpty
-          else
+    func checkForm()
         {
-          self.addBtn.isEnabled = false
-          return
+            if itemName != "" && itemAmount != 0 && itemUnit != ""
+            {
+                addBtn.isEnabled = true
+            }
+            
+            else
+            {
+                addBtn.isEnabled = false
+            }
         }
-        // enable okButton if all conditions are met
-        addBtn.isEnabled = true
-       }
+    
+//    func validator() {
+//        addBtn.isEnabled = false //hidden okButton
+//        itemNameTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//        itemAmountTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//        itemUnitTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//       }
+//
+//    @objc func textFieldCheck(sender: UITextField) {
+//
+//        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
+//
+//        guard
+//          let itemName = itemNameTF.text, !itemName.isEmpty,
+//          let itemAmount = itemAmountTF.text, !itemAmount.isEmpty,
+//          let itemUnit = itemUnitTF.text, !itemUnit.isEmpty
+//          else
+//        {
+//          self.addBtn.isEnabled = false
+//          return
+//        }
+//        // enable okButton if all conditions are met
+//        addBtn.isEnabled = true
+//       }
     
 
     
- 
+    @IBAction func checkName(){
+        itemName = itemNameTF.text ?? ""
+        checkForm()
+    }
+    @IBAction func checkAmount(){
+        itemAmount = Int(itemAmountTF.text!) ?? 0
+        checkForm()
+    }
+    @IBAction func checkUnit(){
+        itemUnit = itemUnitTF.text ?? ""
+        checkForm()
+    }
 
     
     @IBAction func tapKeypad(_ sender: Any) {
