@@ -9,7 +9,7 @@ import UIKit
  
 class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var fridgedata = [FridgeFood]()
+    var data = [FridgeFood]()
     var date: String?
     var amount: Double?
     var unit: String?
@@ -69,7 +69,7 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func fetchItem() {
         do {
             
-            data = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(FridgeFood.fetchRequest())
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -118,7 +118,7 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
-        if let sourceViewController = unwindSegue.source as? PantryModalViewController {
+        if let sourceViewController = unwindSegue.source as? FridgeModalViewController {
             updateView()
         }
     }
@@ -148,7 +148,7 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                
                self.index = indexPath.row
                
-               self.performSegue(withIdentifier: "toAddModal", sender: self)
+               self.performSegue(withIdentifier: "toFridgeAddModal", sender: self)
            }
            editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
            return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
@@ -195,10 +195,10 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toAddModal"{
+        if segue.identifier == "toFridgeAddModal"{
             let Foods = data[index ?? 0]
 
-            let destinationVC = segue.destination as! PantryModalViewController
+            let destinationVC = segue.destination as! FridgeModalViewController
             destinationVC.editItem = Foods
         }
     }
@@ -206,10 +206,10 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 
         // Create a variable that you want to send
-        if segue.identifier == "toAddModal"{
+        if segue.identifier == "toFridgeAddModal"{
             let Foods = data[index ?? 0]
 
-            let destinationVC = segue.destination as! PantryModalViewController
+            let destinationVC = segue.destination as! FridgeModalViewController
             destinationVC.editItem = Foods
         }
         
@@ -222,6 +222,6 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //
 //        present(navigationController, animated: true)
         
-        performSegue(withIdentifier: "toPantryModal", sender: nil)
+        performSegue(withIdentifier: "toFridgeModal", sender: nil)
     }
 }

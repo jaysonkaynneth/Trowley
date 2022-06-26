@@ -537,7 +537,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+"/>
                                 <connections>
                                     <action selector="addModalBtn" destination="JiK-a1-7Fr" eventType="touchUpInside" id="JTS-oA-syb"/>
-                                    <segue destination="xdj-FK-rjw" kind="presentation" id="Hn6-iT-MLP"/>
+                                    <segue destination="xdj-FK-rjw" kind="presentation" identifier="toFridgeModal" id="Hn6-iT-MLP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liq-hV-Zqo">
@@ -583,7 +583,7 @@
                         <outlet property="pantryTabBarItem" destination="yix-SS-xla" id="UZS-5y-hFo"/>
                         <outlet property="pantryTableView" destination="52l-AY-zbn" id="Ifg-pz-rnN"/>
                         <outlet property="yourStocksLabel" destination="OK5-W1-f6p" id="mhO-0Y-UCY"/>
-                        <segue destination="xdj-FK-rjw" kind="presentation" id="p5F-oo-hZb"/>
+                        <segue destination="xdj-FK-rjw" kind="presentation" identifier="toFridgeAddModal" id="p5F-oo-hZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ob-q4-h0T" sceneMemberID="firstResponder"/>
@@ -648,7 +648,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+"/>
                                 <connections>
                                     <action selector="addModalBtn" destination="r2E-5v-wco" eventType="touchUpInside" id="EWQ-xk-p6z"/>
-                                    <segue destination="ugu-tQ-bJx" kind="presentation" id="F7W-TK-FWp"/>
+                                    <segue destination="ugu-tQ-bJx" kind="presentation" identifier="toCupModal" id="F7W-TK-FWp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPS-XL-7cP">
@@ -694,7 +694,7 @@
                         <outlet property="pantryTabBarItem" destination="bYR-i9-OBF" id="bXS-gE-IQR"/>
                         <outlet property="pantryTableView" destination="wkk-UW-UKf" id="bng-Hd-Ijb"/>
                         <outlet property="yourStocksLabel" destination="CW9-6S-yQf" id="tHJ-Zd-7ge"/>
-                        <segue destination="ugu-tQ-bJx" kind="presentation" id="3CS-8n-7yA"/>
+                        <segue destination="ugu-tQ-bJx" kind="presentation" identifier="toCupAddModal" id="3CS-8n-7yA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irk-ij-gue" sceneMemberID="firstResponder"/>
@@ -704,7 +704,7 @@
         <!--FridgeModal-->
         <scene sceneID="1cp-ha-l36">
             <objects>
-                <viewController storyboardIdentifier="AddStockFridgeID" title="FridgeModal" id="xdj-FK-rjw" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddStockFridgeID" title="FridgeModal" id="xdj-FK-rjw" customClass="FridgeModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XIU-sW-9Kk">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -844,7 +844,7 @@
         <!--CupboardModal-->
         <scene sceneID="3X3-of-a39">
             <objects>
-                <viewController storyboardIdentifier="AddStockCupID" title="CupboardModal" id="ugu-tQ-bJx" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddStockCupID" title="CupboardModal" id="ugu-tQ-bJx" customClass="CupModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a5V-F5-Mwe">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -988,8 +988,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="F7W-TK-FWp"/>
-        <segue reference="Hn6-iT-MLP"/>
+        <segue reference="3CS-8n-7yA"/>
+        <segue reference="p5F-oo-hZb"/>
         <segue reference="INY-OZ-uZi"/>
         <segue reference="kb8-PU-RVN"/>
         <segue reference="5qa-DL-ej8"/>

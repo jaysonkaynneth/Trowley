@@ -62,7 +62,7 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     func fetchItem() {
         do {
             
-            data = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(CupFood.fetchRequest())
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -111,7 +111,7 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
-        if let sourceViewController = unwindSegue.source as? PantryModalViewController {
+        if let sourceViewController = unwindSegue.source as? CupModalViewController {
             updateView()
         }
     }
@@ -141,7 +141,7 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
                
                self.index = indexPath.row
                
-               self.performSegue(withIdentifier: "toAddModal", sender: self)
+               self.performSegue(withIdentifier: "toCupAddModal", sender: self)
            }
            editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
            return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
@@ -188,10 +188,10 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toAddModal"{
+        if segue.identifier == "toCupAddModal"{
             let Foods = data[index ?? 0]
 
-            let destinationVC = segue.destination as! PantryModalViewController
+            let destinationVC = segue.destination as! CupModalViewController
             destinationVC.editItem = Foods
         }
     }
@@ -199,10 +199,10 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 
         // Create a variable that you want to send
-        if segue.identifier == "toAddModal"{
+        if segue.identifier == "toCupAddModal"{
             let Foods = data[index ?? 0]
 
-            let destinationVC = segue.destination as! PantryModalViewController
+            let destinationVC = segue.destination as! CupModalViewController
             destinationVC.editItem = Foods
         }
         
@@ -215,7 +215,7 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
 //
 //        present(navigationController, animated: true)
         
-        performSegue(withIdentifier: "toPantryModal", sender: nil)
+        performSegue(withIdentifier: "toCupModal", sender: nil)
     }
 
 }
