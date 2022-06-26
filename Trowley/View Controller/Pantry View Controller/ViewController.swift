@@ -7,9 +7,13 @@
 
 import UIKit
 import UserNotifications
-
+ 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+
+    var kitchenFood = [Food]()
+    var fridgeFood = [Food]()
+    var cupFood = [Food]()
     var data = [Food]()
     var date: String?
     var amount: Double?
@@ -46,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         //-------
-        
+        definesPresentationContext = true
         pantryTableView.reloadData()
 //        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
 //        goodLabel.text = "Good Day,"
@@ -60,18 +64,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
 //        yourStocksLabel.text = "YOUR STOCKS"
 //        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
-                
-        kitchenButt.setTitle("Kitchen", for: .normal)
-        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
-        fridgeButt.setTitle("Fridge", for: .normal)
-        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        kitchenButt.setImage(UIImage(named: "KitchenButton"), for: .normal)
+        kitchenButt.setImage(UIImage(named: "KitchenButtonPressed"), for: .selected)
+//        kitchenButt.setTitle("Kitchen", for: .normal)
+//        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
-        cupboardButt.setTitle("Cupboard", for: .normal)
-        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        fridgeButt.setImage(UIImage(named: "FridgeButton"), for: .normal)
+        fridgeButt.setImage(UIImage(named: "FridgeButtonPressed"), for: .selected)
+//        fridgeButt.setTitle("Fridge", for: .normal)
+//        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        
+        cupboardButt.setImage(UIImage(named: "CupButton"), for: .normal)
+        cupboardButt.setImage(UIImage(named: "CupButtonPressed"), for: .selected)
+//        cupboardButt.setTitle("Cupboard", for: .normal)
+//        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
 
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
@@ -90,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func fetchItem() {
         do {
             
-            data = try context.fetch(Food.fetchRequest())
+            kitchenFood = try context.fetch(Food.fetchRequest())
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -233,8 +243,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.editItem = Foods
         }
-        
+
     }
+    
+    @IBAction func kitchenButt(_ sender: Any) {
+        kitchenButt.isSelected = !kitchenButt.isSelected
+        data = kitchenFood
+        pantryTableView.reloadData()
+    }
+    
+    @IBAction func fridgeButt(_ sender: Any) {
+        fridgeButt.isSelected = !fridgeButt.isSelected
+        data = fridgeFood
+        pantryTableView.reloadData()
+    }
+    
+    @IBAction func cupButt(_ sender: Any) {
+        cupboardButt.isSelected = !cupboardButt.isSelected
+        data = cupFood
+        pantryTableView.reloadData()
+    }
+
+    
     @IBAction func addModalBtn() {
 //        let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
 //        addStockVC.modalPresentationStyle = .popover
@@ -246,7 +276,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "toPantryModal", sender: nil)
     }
 }
-
 
 
 extension UIFont {
