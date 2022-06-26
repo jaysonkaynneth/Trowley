@@ -73,32 +73,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18u-JW-y13">
                                 <rect key="frame" x="13" y="127" width="109" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Kitchen">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="SFProRounded-Regular"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseBackgroundColor" red="0.32156862745098036" green="0.63529411764705879" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Kitchen"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-NN-bIe">
                                 <rect key="frame" x="130" y="127" width="99" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Fridge">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="SFProRounded-Regular"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Fridge"/>
                                 <connections>
                                     <segue destination="JiK-a1-7Fr" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="yGG-3i-agm"/>
                                 </connections>
@@ -106,11 +89,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-mq-HBa">
                                 <rect key="frame" x="237" y="127" width="144" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cupboard">
-                                    <fontDescription key="titleFontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cupboard"/>
                                 <connections>
                                     <segue destination="r2E-5v-wco" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="bEu-uW-EkG"/>
                                 </connections>
@@ -246,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="-355" y="232"/>
         </scene>
-        <!--Pantry Modal View Controller-->
+        <!--kitchenModal-->
         <scene sceneID="g8A-Ly-vK6">
             <objects>
-                <viewController storyboardIdentifier="AddStockID" id="Gck-W6-Vej" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddStockID" title="kitchenModal" id="Gck-W6-Vej" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nii-SI-giZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,7 +365,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2517" y="-773"/>
+            <point key="canvasLocation" x="2211" y="-39"/>
         </scene>
         <!--Shop List Modal View Controller-->
         <scene sceneID="oSx-mE-i9I">
@@ -556,35 +537,29 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+"/>
                                 <connections>
                                     <action selector="addModalBtn" destination="JiK-a1-7Fr" eventType="touchUpInside" id="JTS-oA-syb"/>
-                                    <segue destination="GX2-sN-NzG" kind="unwind" unwindAction="unwindToMain:" id="r6Q-xq-JVO"/>
+                                    <segue destination="xdj-FK-rjw" kind="presentation" id="Hn6-iT-MLP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liq-hV-Zqo">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liq-hV-Zqo">
                                 <rect key="frame" x="13" y="127" width="109" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Kitchen">
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Kitchen"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="qJw-9Z-iG2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-II-jOf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-II-jOf">
                                 <rect key="frame" x="130" y="127" width="99" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Fridge">
-                                    <color key="baseBackgroundColor" red="0.32156862745098036" green="0.63529411764705879" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Fridge"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXC-hp-7MV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXC-hp-7MV">
                                 <rect key="frame" x="237" y="127" width="144" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cupboard">
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cupboard"/>
                                 <connections>
                                     <segue destination="r2E-5v-wco" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="INY-OZ-uZi"/>
                                 </connections>
@@ -608,11 +583,10 @@
                         <outlet property="pantryTabBarItem" destination="yix-SS-xla" id="UZS-5y-hFo"/>
                         <outlet property="pantryTableView" destination="52l-AY-zbn" id="Ifg-pz-rnN"/>
                         <outlet property="yourStocksLabel" destination="OK5-W1-f6p" id="mhO-0Y-UCY"/>
-                        <segue destination="Gck-W6-Vej" kind="presentation" identifier="fridgeToModal" id="buk-Sv-1Yy"/>
+                        <segue destination="xdj-FK-rjw" kind="presentation" id="p5F-oo-hZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ob-q4-h0T" sceneMemberID="firstResponder"/>
-                <exit id="GX2-sN-NzG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="837" y="-750"/>
         </scene>
@@ -674,38 +648,32 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+"/>
                                 <connections>
                                     <action selector="addModalBtn" destination="r2E-5v-wco" eventType="touchUpInside" id="EWQ-xk-p6z"/>
-                                    <segue destination="WDs-Fv-U7x" kind="unwind" unwindAction="unwindToMain:" id="ODZ-37-058"/>
+                                    <segue destination="ugu-tQ-bJx" kind="presentation" id="F7W-TK-FWp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPS-XL-7cP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPS-XL-7cP">
                                 <rect key="frame" x="13" y="127" width="109" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Kitchen">
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Kitchen"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="pbs-Ik-z0R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-gq-bsI">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-gq-bsI">
                                 <rect key="frame" x="130" y="127" width="99" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Fridge">
-                                    <color key="baseBackgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Fridge"/>
                                 <connections>
                                     <segue destination="JiK-a1-7Fr" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="kb8-PU-RVN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzk-SG-QTf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzk-SG-QTf">
                                 <rect key="frame" x="237" y="127" width="144" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cupboard">
-                                    <color key="baseBackgroundColor" red="0.32156862745098036" green="0.63529411764705879" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cupboard"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Pantry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW9-6S-yQf">
                                 <rect key="frame" x="16" y="61" width="366" height="45"/>
@@ -726,13 +694,292 @@
                         <outlet property="pantryTabBarItem" destination="bYR-i9-OBF" id="bXS-gE-IQR"/>
                         <outlet property="pantryTableView" destination="wkk-UW-UKf" id="bng-Hd-Ijb"/>
                         <outlet property="yourStocksLabel" destination="CW9-6S-yQf" id="tHJ-Zd-7ge"/>
-                        <segue destination="Gck-W6-Vej" kind="presentation" identifier="cupboardToModal" id="SFX-Fz-kwx"/>
+                        <segue destination="ugu-tQ-bJx" kind="presentation" id="3CS-8n-7yA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irk-ij-gue" sceneMemberID="firstResponder"/>
-                <exit id="WDs-Fv-U7x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2517" y="-39"/>
+            <point key="canvasLocation" x="837" y="-1488"/>
+        </scene>
+        <!--FridgeModal-->
+        <scene sceneID="1cp-ha-l36">
+            <objects>
+                <viewController storyboardIdentifier="AddStockFridgeID" title="FridgeModal" id="xdj-FK-rjw" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XIU-sW-9Kk">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-mo-DCP">
+                                <rect key="frame" x="16" y="116" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vl2-fP-A7o">
+                                <rect key="frame" x="16" y="158" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHF-56-vXa">
+                                <rect key="frame" x="16" y="200" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By7-AX-rNN">
+                                <rect key="frame" x="16" y="242" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-8t-iXo">
+                                <rect key="frame" x="16" y="284" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-nd-MIe">
+                                <rect key="frame" x="122" y="109" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkName" destination="xdj-FK-rjw" eventType="editingDidEnd" id="mft-as-yld"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdX-z8-i93">
+                                <rect key="frame" x="122" y="151" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="checkAmount" destination="xdj-FK-rjw" eventType="editingDidEnd" id="23Y-Ex-C9G"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iFN-aq-fs6">
+                                <rect key="frame" x="122" y="193" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkUnit" destination="xdj-FK-rjw" eventType="editingDidEnd" id="2Ar-Jc-ITF"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="RPf-nk-z4v">
+                                <rect key="frame" x="122" y="235" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="expDateSelect:" destination="xdj-FK-rjw" eventType="valueChanged" id="SQO-mi-UyQ"/>
+                                </connections>
+                            </datePicker>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gJc-du-8ef">
+                                <rect key="frame" x="132" y="279" width="242" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Kitchen"/>
+                                    <segment title="Fridge"/>
+                                    <segment title="Cupboard"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1y-hc-0C1">
+                                <rect key="frame" x="16" y="20" width="78" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="xdj-FK-rjw" eventType="touchUpInside" id="XOa-hO-4yj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ed4-oW-5Rn">
+                                <rect key="frame" x="306" y="20" width="65" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                <connections>
+                                    <action selector="addBtn:" destination="xdj-FK-rjw" eventType="touchUpInside" id="jzl-3T-mBN"/>
+                                    <segue destination="FO7-ix-xrQ" kind="unwind" unwindAction="unwindToMain:" id="CAW-Ie-qQB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-n1-nqH">
+                                <rect key="frame" x="102" y="25" width="196" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gw5-mv-dIh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="R1c-QY-BmJ" appends="YES" id="RkQ-8D-qCt"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="addBtn" destination="Ed4-oW-5Rn" id="Nem-DJ-gVN"/>
+                        <outlet property="cancelBtn" destination="K1y-hc-0C1" id="xaa-J0-9Hp"/>
+                        <outlet property="itemAmountTF" destination="bdX-z8-i93" id="0WT-TR-qAx"/>
+                        <outlet property="itemExpDatePicker" destination="RPf-nk-z4v" id="TBg-cr-pYv"/>
+                        <outlet property="itemLocationPicker" destination="gJc-du-8ef" id="9KL-R5-lLq"/>
+                        <outlet property="itemNameTF" destination="2lK-nd-MIe" id="IC3-hK-EuA"/>
+                        <outlet property="itemUnitTF" destination="iFN-aq-fs6" id="qrG-DE-4jh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PM2-yE-rrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FO7-ix-xrQ" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="R1c-QY-BmJ">
+                    <connections>
+                        <action selector="tapKeypad:" destination="xdj-FK-rjw" id="RRb-gj-9v4"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2211" y="-750"/>
+        </scene>
+        <!--CupboardModal-->
+        <scene sceneID="3X3-of-a39">
+            <objects>
+                <viewController storyboardIdentifier="AddStockCupID" title="CupboardModal" id="ugu-tQ-bJx" customClass="PantryModalViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a5V-F5-Mwe">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZS-dS-1bi">
+                                <rect key="frame" x="16" y="116" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipC-BE-iTv">
+                                <rect key="frame" x="16" y="158" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-pq-UaA">
+                                <rect key="frame" x="16" y="200" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si2-i1-KP0">
+                                <rect key="frame" x="16" y="242" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbA-lC-qYn">
+                                <rect key="frame" x="16" y="284" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RdI-LY-zlV">
+                                <rect key="frame" x="122" y="109" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkName" destination="ugu-tQ-bJx" eventType="editingDidEnd" id="jT3-ie-iEu"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xh5-nu-CV2">
+                                <rect key="frame" x="122" y="151" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="checkAmount" destination="ugu-tQ-bJx" eventType="editingDidEnd" id="ifL-tJ-ODs"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caW-Vt-QYh">
+                                <rect key="frame" x="122" y="193" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkUnit" destination="ugu-tQ-bJx" eventType="editingDidEnd" id="O5S-HA-YOW"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="dU9-00-J0k">
+                                <rect key="frame" x="122" y="235" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="expDateSelect:" destination="ugu-tQ-bJx" eventType="valueChanged" id="9gJ-x5-0NT"/>
+                                </connections>
+                            </datePicker>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ktA-Mb-MRP">
+                                <rect key="frame" x="132" y="279" width="242" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Kitchen"/>
+                                    <segment title="Fridge"/>
+                                    <segment title="Cupboard"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8J-Mq-vw4">
+                                <rect key="frame" x="16" y="20" width="78" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="ugu-tQ-bJx" eventType="touchUpInside" id="hK0-ge-RMq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3V-49-bd2">
+                                <rect key="frame" x="306" y="20" width="65" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                <connections>
+                                    <action selector="addBtn:" destination="ugu-tQ-bJx" eventType="touchUpInside" id="Nel-dw-EX5"/>
+                                    <segue destination="knU-gS-lNA" kind="unwind" unwindAction="unwindToMain:" id="YLj-Hl-xdw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK9-qK-S6z">
+                                <rect key="frame" x="102" y="25" width="196" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eLZ-6p-kvW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mvX-6a-QUL" appends="YES" id="kd0-9B-hNs"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="addBtn" destination="A3V-49-bd2" id="xqW-Wu-eO4"/>
+                        <outlet property="cancelBtn" destination="A8J-Mq-vw4" id="JHS-Z4-r3j"/>
+                        <outlet property="itemAmountTF" destination="xh5-nu-CV2" id="BXW-vF-oTu"/>
+                        <outlet property="itemExpDatePicker" destination="dU9-00-J0k" id="B5D-fZ-V32"/>
+                        <outlet property="itemLocationPicker" destination="ktA-Mb-MRP" id="2V6-A2-p3d"/>
+                        <outlet property="itemNameTF" destination="RdI-LY-zlV" id="P0k-vN-wWy"/>
+                        <outlet property="itemUnitTF" destination="caW-Vt-QYh" id="qnW-Fa-cks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5W-zg-451" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="knU-gS-lNA" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="mvX-6a-QUL">
+                    <connections>
+                        <action selector="tapKeypad:" destination="ugu-tQ-bJx" id="4Ph-hf-rfc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2211" y="-1489"/>
         </scene>
     </scenes>
     <designables>
@@ -741,11 +988,13 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="F7W-TK-FWp"/>
+        <segue reference="Hn6-iT-MLP"/>
         <segue reference="INY-OZ-uZi"/>
         <segue reference="kb8-PU-RVN"/>
         <segue reference="5qa-DL-ej8"/>
-        <segue reference="buk-Sv-1Yy"/>
-        <segue reference="qJw-9Z-iG2"/>
+        <segue reference="BUA-gh-Emo"/>
+        <segue reference="pbs-Ik-z0R"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>

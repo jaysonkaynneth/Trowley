@@ -9,7 +9,7 @@ import UIKit
  
 class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var data = [Food]()
+    var fridgedata = [FridgeFood]()
     var date: String?
     var amount: Double?
     var unit: String?
@@ -44,33 +44,13 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("permission denied")
             }
         }
-        //-------
-        
+      
         pantryTableView.reloadData()
-//        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
-//        goodLabel.text = "Good Day,"
-//
-//        trowleyLabel.font = .rounded(ofSize: 34, weight: .bold)
-//        trowleyLabel.text = "Trowleys!"
-//
-//        tipsLabel.font = .rounded(ofSize: 22, weight: .bold)
-//        tipsLabel.text = "TIPS FROM ROWLEY🐢"
-//
-//        yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
-//        yourStocksLabel.text = "YOUR STOCKS"
-//        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
-                
-        kitchenButt.setTitle("Kitchen", for: .normal)
-        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
-        
-        fridgeButt.setTitle("Fridge", for: .normal)
-        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
-        
-        cupboardButt.setTitle("Cupboard", for: .normal)
-        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+
+        kitchenButt.setImage(UIImage(named: "KitchenButton"), for: .normal)
+        fridgeButt.setImage(UIImage(named: "FridgeButtonPressed"), for: .normal)
+        cupboardButt.setImage(UIImage(named: "CupButton"), for: .normal)
+
 
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
@@ -80,7 +60,7 @@ class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         pantryTabBarItem.image = UIImage(named: "IconPantry")
         pantryTabBarItem.selectedImage = UIImage(named: "IconPantrySelected")
-//        pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
         
 
         fetchItem()

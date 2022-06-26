@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         //-------
-        
+        definesPresentationContext = true
         pantryTableView.reloadData()
 //        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
 //        goodLabel.text = "Good Day,"
@@ -60,18 +60,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
 //        yourStocksLabel.text = "YOUR STOCKS"
 //        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
-                
-        kitchenButt.setTitle("Kitchen", for: .normal)
-        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
-        fridgeButt.setTitle("Fridge", for: .normal)
-        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        kitchenButt.setImage(UIImage(named: "KitchenButtonPressed"), for: .normal)
+//        kitchenButt.setTitle("Kitchen", for: .normal)
+//        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
         
-        cupboardButt.setTitle("Cupboard", for: .normal)
-        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        fridgeButt.setImage(UIImage(named: "FridgeButton"), for: .normal)
+//        fridgeButt.setTitle("Fridge", for: .normal)
+//        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
+        
+        cupboardButt.setImage(UIImage(named: "CupButton"), for: .normal)
+//        cupboardButt.setTitle("Cupboard", for: .normal)
+//        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
+//        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
 
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
