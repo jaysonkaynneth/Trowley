@@ -12,21 +12,16 @@
 		1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppingListCell.xib */; };
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
-		966666B62861B525000C92D1 /* PantryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966666B52861B525000C92D1 /* PantryCell.swift */; };
 		96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */; };
 		96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */; };
 		96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B082862FECF008B1E4C /* List+CoreDataClass.swift */; };
 		96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */; };
-		96A7B4F0286743D1001A85D6 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */; };
-		96A7B4F2286743DE001A85D6 /* CupboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */; };
-		96A7B4F428674F94001A85D6 /* FridgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A7B4F328674F94001A85D6 /* FridgeCell.swift */; };
-		96A7B4F628674FA2001A85D6 /* CupboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A7B4F528674FA2001A85D6 /* CupboardCell.swift */; };
-		96B1AB4E2868085200A120F0 /* CupFood+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB4A2868085100A120F0 /* CupFood+CoreDataClass.swift */; };
-		96B1AB4F2868085200A120F0 /* CupFood+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB4B2868085100A120F0 /* CupFood+CoreDataProperties.swift */; };
-		96B1AB502868085200A120F0 /* FridgeFood+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB4C2868085200A120F0 /* FridgeFood+CoreDataClass.swift */; };
-		96B1AB512868085200A120F0 /* FridgeFood+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB4D2868085200A120F0 /* FridgeFood+CoreDataProperties.swift */; };
-		96B1AB532868091B00A120F0 /* FridgeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */; };
-		96B1AB552868092400A120F0 /* CupModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB542868092400A120F0 /* CupModalViewController.swift */; };
+		96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */; };
+		96B1AB5C2868200600A120F0 /* PantryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5B2868200600A120F0 /* PantryCell.swift */; };
+		96B1AB612868206300A120F0 /* FridgeFood+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5D2868206300A120F0 /* FridgeFood+CoreDataClass.swift */; };
+		96B1AB622868206300A120F0 /* FridgeFood+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5E2868206300A120F0 /* FridgeFood+CoreDataProperties.swift */; };
+		96B1AB632868206300A120F0 /* CupFood+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5F2868206300A120F0 /* CupFood+CoreDataClass.swift */; };
+		96B1AB642868206300A120F0 /* CupFood+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB602868206300A120F0 /* CupFood+CoreDataProperties.swift */; };
 		96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */; };
 		96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF7D352858843A00005C60 /* TrowleyTabBar.swift */; };
 		96F7F79A2865A913005BAF82 /* ItemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */; };
@@ -47,21 +42,16 @@
 		1FD31F13285C6209001F85BB /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
-		966666B52861B525000C92D1 /* PantryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryCell.swift; sourceTree = "<group>"; };
 		96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96711B082862FECF008B1E4C /* List+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
-		96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupboardViewController.swift; sourceTree = "<group>"; };
-		96A7B4F328674F94001A85D6 /* FridgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeCell.swift; sourceTree = "<group>"; };
-		96A7B4F528674FA2001A85D6 /* CupboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupboardCell.swift; sourceTree = "<group>"; };
-		96B1AB4A2868085100A120F0 /* CupFood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CupFood+CoreDataClass.swift"; sourceTree = "<group>"; };
-		96B1AB4B2868085100A120F0 /* CupFood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CupFood+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96B1AB4C2868085200A120F0 /* FridgeFood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FridgeFood+CoreDataClass.swift"; sourceTree = "<group>"; };
-		96B1AB4D2868085200A120F0 /* FridgeFood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FridgeFood+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeModalViewController.swift; sourceTree = "<group>"; };
-		96B1AB542868092400A120F0 /* CupModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupModalViewController.swift; sourceTree = "<group>"; };
+		96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
+		96B1AB5B2868200600A120F0 /* PantryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryCell.swift; sourceTree = "<group>"; };
+		96B1AB5D2868206300A120F0 /* FridgeFood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FridgeFood+CoreDataClass.swift"; sourceTree = "<group>"; };
+		96B1AB5E2868206300A120F0 /* FridgeFood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FridgeFood+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		96B1AB5F2868206300A120F0 /* CupFood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CupFood+CoreDataClass.swift"; sourceTree = "<group>"; };
+		96B1AB602868206300A120F0 /* CupFood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CupFood+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListViewController.swift; sourceTree = "<group>"; };
 		96EF7D352858843A00005C60 /* TrowleyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrowleyTabBar.swift; sourceTree = "<group>"; };
 		96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -92,10 +82,10 @@
 		96711B0E2862FF01008B1E4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				96B1AB4A2868085100A120F0 /* CupFood+CoreDataClass.swift */,
-				96B1AB4B2868085100A120F0 /* CupFood+CoreDataProperties.swift */,
-				96B1AB4C2868085200A120F0 /* FridgeFood+CoreDataClass.swift */,
-				96B1AB4D2868085200A120F0 /* FridgeFood+CoreDataProperties.swift */,
+				96B1AB5D2868206300A120F0 /* FridgeFood+CoreDataClass.swift */,
+				96B1AB5E2868206300A120F0 /* FridgeFood+CoreDataProperties.swift */,
+				96B1AB5F2868206300A120F0 /* CupFood+CoreDataClass.swift */,
+				96B1AB602868206300A120F0 /* CupFood+CoreDataProperties.swift */,
 				96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */,
 				96F7F7992865A913005BAF82 /* ItemList+CoreDataProperties.swift */,
 				96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */,
@@ -129,9 +119,7 @@
 			children = (
 				1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */,
 				1FD31F13285C6209001F85BB /* ShoppingListCell.xib */,
-				966666B52861B525000C92D1 /* PantryCell.swift */,
-				96A7B4F328674F94001A85D6 /* FridgeCell.swift */,
-				96A7B4F528674FA2001A85D6 /* CupboardCell.swift */,
+				96B1AB5B2868200600A120F0 /* PantryCell.swift */,
 				1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */,
 				1FD31F12285C6209001F85BB /* ShoppingListCell.swift */,
 			);
@@ -142,12 +130,18 @@
 			isa = PBXGroup;
 			children = (
 				96FD42572851E1DB00A83670 /* ViewController.swift */,
-				96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */,
-				96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */,
-				96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */,
-				96B1AB542868092400A120F0 /* CupModalViewController.swift */,
+				96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */,
 			);
 			path = "Pantry View Controller";
+			sourceTree = "<group>";
+		};
+		96B1AB652868212500A120F0 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96B1AB5628680C4E00A120F0 /* Pantry View Controller */,
+				96711B10286311AD008B1E4C /* ShoppingViewController */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		96FD42472851E1DB00A83670 = {
@@ -169,9 +163,8 @@
 		96FD42522851E1DB00A83670 /* Trowley */ = {
 			isa = PBXGroup;
 			children = (
-				96B1AB5628680C4E00A120F0 /* Pantry View Controller */,
+				96B1AB652868212500A120F0 /* View Controller */,
 				96711B11286311DA008B1E4C /* Cell */,
-				96711B10286311AD008B1E4C /* ShoppingViewController */,
 				96711B0F2863119A008B1E4C /* Delegate */,
 				96711B0E2862FF01008B1E4C /* Model */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
@@ -258,31 +251,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B1AB612868206300A120F0 /* FridgeFood+CoreDataClass.swift in Sources */,
 				96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */,
+				96B1AB632868206300A120F0 /* CupFood+CoreDataClass.swift in Sources */,
+				96B1AB622868206300A120F0 /* FridgeFood+CoreDataProperties.swift in Sources */,
+				96B1AB5C2868200600A120F0 /* PantryCell.swift in Sources */,
 				96F7F79B2865A913005BAF82 /* ItemList+CoreDataProperties.swift in Sources */,
-				96B1AB552868092400A120F0 /* CupModalViewController.swift in Sources */,
-				96B1AB502868085200A120F0 /* FridgeFood+CoreDataClass.swift in Sources */,
 				96F7F79A2865A913005BAF82 /* ItemList+CoreDataClass.swift in Sources */,
-				96B1AB4F2868085200A120F0 /* CupFood+CoreDataProperties.swift in Sources */,
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
-				96A7B4F428674F94001A85D6 /* FridgeCell.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
 				1FD31F14285C6209001F85BB /* ShoppingListCell.swift in Sources */,
 				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
-				96B1AB532868091B00A120F0 /* FridgeModalViewController.swift in Sources */,
-				96A7B4F0286743D1001A85D6 /* FridgeViewController.swift in Sources */,
 				D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */,
-				96A7B4F2286743DE001A85D6 /* CupboardViewController.swift in Sources */,
-				96B1AB512868085200A120F0 /* FridgeFood+CoreDataProperties.swift in Sources */,
-				96B1AB4E2868085200A120F0 /* CupFood+CoreDataClass.swift in Sources */,
+				96B1AB642868206300A120F0 /* CupFood+CoreDataProperties.swift in Sources */,
 				96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
-				966666B62861B525000C92D1 /* PantryCell.swift in Sources */,
 				96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */,
 				1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */,
 				96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */,
 				96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */,
-				96A7B4F628674FA2001A85D6 /* CupboardCell.swift in Sources */,
+				96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */,
 				96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */,
 				96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */,
 			);

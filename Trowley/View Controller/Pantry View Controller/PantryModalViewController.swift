@@ -1,13 +1,15 @@
 //
-//  FridgeModalViewController.swift
+//  PantryModalViewController.swift
 //  Trowley
 //
-//  Created by Jason Kenneth on 26/06/22.
+//  Created by Joshia Felim Efraim on 21/06/22.
 //
 
 import UIKit
+import UserNotifications
 
-class FridgeModalViewController: UIViewController {
+class PantryModalViewController: UIViewController {
+    
     //notification
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -20,7 +22,7 @@ class FridgeModalViewController: UIViewController {
     @IBOutlet weak var itemLocationPicker: UISegmentedControl!
     
     var date: String?
-    var editItem : FridgeFood?
+    var editItem : Food?
     var itemName: String = ""
     var itemAmount: Int = 0
     var itemUnit: String = ""
@@ -32,6 +34,7 @@ class FridgeModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if editItem != nil{
             itemNameTF.text = editItem?.name
             let tempAmount = editItem?.amount ?? 0
@@ -62,6 +65,33 @@ class FridgeModalViewController: UIViewController {
             }
         }
     
+//    func validator() {
+//        addBtn.isEnabled = false //hidden okButton
+//        itemNameTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//        itemAmountTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//        itemUnitTF.addTarget(self, action: #selector(textFieldCheck),
+//                                    for: .editingChanged)
+//       }
+//
+//    @objc func textFieldCheck(sender: UITextField) {
+//
+//        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
+//
+//        guard
+//          let itemName = itemNameTF.text, !itemName.isEmpty,
+//          let itemAmount = itemAmountTF.text, !itemAmount.isEmpty,
+//          let itemUnit = itemUnitTF.text, !itemUnit.isEmpty
+//          else
+//        {
+//          self.addBtn.isEnabled = false
+//          return
+//        }
+//        // enable okButton if all conditions are met
+//        addBtn.isEnabled = true
+//       }
+    
 
     
     @IBAction func checkName(){
@@ -77,6 +107,18 @@ class FridgeModalViewController: UIViewController {
         checkForm()
     }
 
+//    @IBAction func itemLocationPicker(_ sender: Any) {
+//        switch itemLocationPicker.selectedSegmentIndex {
+//        case 0:
+//
+//        case 1:
+//
+//        case 2:
+//
+//        default:
+//            break;
+//        }
+//    }
     
     @IBAction func tapKeypad(_ sender: Any) {
             view.endEditing(true)
@@ -88,6 +130,10 @@ class FridgeModalViewController: UIViewController {
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         date = datestyle.string(from: itemExpDatePicker.date)
+    }
+    
+    func addToFridge() {
+        
     }
     
     @IBAction func addBtn(_ sender: Any) {
@@ -104,7 +150,7 @@ class FridgeModalViewController: UIViewController {
             datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
             datestyle.locale = NSLocale.current
             datestyle.dateFormat = "d MMM yyyy"
-            let addItem = FridgeFood(context: self.context)
+            let addItem = Food(context: self.context)
             addItem.name = itemNameTF.text
             addItem.expiry = date
             addItem.amount = Int16(itemAmountTF.text!) ?? 0
