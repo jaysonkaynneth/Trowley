@@ -6,7 +6,7 @@
 //
 
 import UIKit
- 
+  
 class CupboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var data = [CupFood]()
@@ -30,7 +30,6 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //notification permission---
         notificationCenter.requestAuthorization(options: [.sound, .alert]) { permisssionGranted, error in
             if (!permisssionGranted){
@@ -205,6 +204,7 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
+
     @IBAction func addModalBtn() {
 //        let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
 //        addStockVC.modalPresentationStyle = .popover

@@ -6,7 +6,7 @@
 //
 
 import UIKit
- 
+  
 class FridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var data = [FridgeFood]()

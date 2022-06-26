@@ -39,7 +39,6 @@
 		96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FD425F2851E1DE00A83670 /* Assets.xcassets */; };
 		96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */; };
 		D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */; };
-		D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0103F2861ACC100415027 /* PantryModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +76,6 @@
 		96FD42622851E1DE00A83670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96FD42642851E1DE00A83670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoplistModalViewController.swift; sourceTree = "<group>"; };
-		D8A0103F2861ACC100415027 /* PantryModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +144,6 @@
 				96FD42572851E1DB00A83670 /* ViewController.swift */,
 				96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */,
 				96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */,
-				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
 				96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */,
 				96B1AB542868092400A120F0 /* CupModalViewController.swift */,
 			);
@@ -262,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */,
-				D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */,
 				96F7F79B2865A913005BAF82 /* ItemList+CoreDataProperties.swift in Sources */,
 				96B1AB552868092400A120F0 /* CupModalViewController.swift in Sources */,
 				96B1AB502868085200A120F0 /* FridgeFood+CoreDataClass.swift in Sources */,
