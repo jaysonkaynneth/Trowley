@@ -75,6 +75,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Kitchen"/>
+                                <connections>
+                                    <action selector="kitchenButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUz-Pc-aLv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-NN-bIe">
                                 <rect key="frame" x="130" y="127" width="99" height="31"/>
@@ -82,6 +85,9 @@
                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Fridge"/>
+                                <connections>
+                                    <action selector="fridgeButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="189-Zf-GnG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-mq-HBa">
                                 <rect key="frame" x="237" y="127" width="144" height="31"/>
@@ -89,6 +95,9 @@
                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Cupboard"/>
+                                <connections>
+                                    <action selector="cupButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sCq-1y-rC8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Pantry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h0-Ja-md7">
                                 <rect key="frame" x="16" y="61" width="366" height="45"/>
@@ -381,7 +390,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1657" y="-39"/>
+            <point key="canvasLocation" x="1656.9230769230769" y="-39.099526066350712"/>
         </scene>
         <!--Shop List Modal View Controller-->
         <scene sceneID="oSx-mE-i9I">
