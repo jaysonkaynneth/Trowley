@@ -23,11 +23,9 @@ class CupboardViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var kitchenButt: UIButton!
     @IBOutlet weak var fridgeButt: UIButton!
     @IBOutlet weak var cupboardButt: UIButton!
-    
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var yourStocksLabel: UILabel!
     @IBOutlet weak var pantryTabBarItem: UITabBarItem!
-
 //    @IBOutlet weak var addModalBtn: UIButton!
     
     override func viewDidLoad() {

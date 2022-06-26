@@ -117,19 +117,13 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		96711B10286311AD008B1E4C /* ViewController */ = {
+		96711B10286311AD008B1E4C /* ShoppingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				96FD42572851E1DB00A83670 /* ViewController.swift */,
-				96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */,
-				96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */,
 				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
-				96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */,
-				96B1AB542868092400A120F0 /* CupModalViewController.swift */,
-				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
 				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
 			);
-			path = ViewController;
+			path = ShoppingViewController;
 			sourceTree = "<group>";
 		};
 		96711B11286311DA008B1E4C /* Cell */ = {
@@ -144,6 +138,19 @@
 				1FD31F12285C6209001F85BB /* ShoppingListCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		96B1AB5628680C4E00A120F0 /* Pantry View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96FD42572851E1DB00A83670 /* ViewController.swift */,
+				96A7B4EF286743D1001A85D6 /* FridgeViewController.swift */,
+				96A7B4F1286743DE001A85D6 /* CupboardViewController.swift */,
+				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
+				96B1AB522868091B00A120F0 /* FridgeModalViewController.swift */,
+				96B1AB542868092400A120F0 /* CupModalViewController.swift */,
+			);
+			path = "Pantry View Controller";
 			sourceTree = "<group>";
 		};
 		96FD42472851E1DB00A83670 = {
@@ -165,8 +172,9 @@
 		96FD42522851E1DB00A83670 /* Trowley */ = {
 			isa = PBXGroup;
 			children = (
+				96B1AB5628680C4E00A120F0 /* Pantry View Controller */,
 				96711B11286311DA008B1E4C /* Cell */,
-				96711B10286311AD008B1E4C /* ViewController */,
+				96711B10286311AD008B1E4C /* ShoppingViewController */,
 				96711B0F2863119A008B1E4C /* Delegate */,
 				96711B0E2862FF01008B1E4C /* Model */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,

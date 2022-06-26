@@ -312,6 +312,9 @@
                                     <segment title="Fridge"/>
                                     <segment title="Cupboard"/>
                                 </segments>
+                                <connections>
+                                    <action selector="itemLocationPicker:" destination="Gck-W6-Vej" eventType="valueChanged" id="Zce-St-2lB"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xi-8A-rjK">
                                 <rect key="frame" x="16" y="20" width="78" height="31"/>
@@ -994,7 +997,7 @@
         <segue reference="kb8-PU-RVN"/>
         <segue reference="5qa-DL-ej8"/>
         <segue reference="BUA-gh-Emo"/>
-        <segue reference="pbs-Ik-z0R"/>
+        <segue reference="JJw-zx-4Uz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>

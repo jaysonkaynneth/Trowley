@@ -106,6 +106,18 @@ class PantryModalViewController: UIViewController {
         checkForm()
     }
 
+    @IBAction func itemLocationPicker(_ sender: Any) {
+        switch itemLocationPicker.selectedSegmentIndex {
+        case 0:
+           
+        case 1:
+          
+        case 2:
+            
+        default:
+            break;
+        }
+    }
     
     @IBAction func tapKeypad(_ sender: Any) {
             view.endEditing(true)
@@ -117,6 +129,10 @@ class PantryModalViewController: UIViewController {
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         date = datestyle.string(from: itemExpDatePicker.date)
+    }
+    
+    func addToFridge() {
+        
     }
     
     @IBAction func addBtn(_ sender: Any) {
