@@ -94,13 +94,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
 
-        fetchItem()
+        fetchKitchenItem()
     }
     
-    func fetchItem() {
+    func fetchKitchenItem() {
         do {
             
-            kitchenFood = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(Food.fetchRequest())
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -109,6 +109,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
         }
     }
+//
+//    func fetchFridgeItem() {
+//        do {
+//
+//            fridgeFood = try context.fetch(FridgeFood.fetchRequest())
+//            DispatchQueue.main.async {
+//                            self.pantryTableView.reloadData()
+//                        }
+//
+//            } catch {
+//
+//        }
+//    }
+//
+//    func fetchCupItem() {
+//        do {
+//
+//            cupFood = try context.fetch(CupFood.fetchRequest())
+//            DispatchQueue.main.async {
+//                            self.pantryTableView.reloadData()
+//                        }
+//
+//            } catch {
+//
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
             updateView()
@@ -151,11 +177,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
+            print("unwind")
         }
     }
     
     func updateView() {
-        fetchItem()
+        fetchKitchenItem()
         pantryTableView.reloadData()
     }
     
@@ -248,18 +275,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func kitchenButt(_ sender: Any) {
         kitchenButt.isSelected = !kitchenButt.isSelected
+        fridgeButt.isSelected = false
+        cupboardButt.isSelected = false
+        fetchKitchenItem()
         data = kitchenFood
         pantryTableView.reloadData()
     }
     
     @IBAction func fridgeButt(_ sender: Any) {
         fridgeButt.isSelected = !fridgeButt.isSelected
+        kitchenButt.isSelected = false
+        cupboardButt.isSelected = false
+//        fetchFridgeItem()
         data = fridgeFood
         pantryTableView.reloadData()
     }
     
     @IBAction func cupButt(_ sender: Any) {
         cupboardButt.isSelected = !cupboardButt.isSelected
+        kitchenButt.isSelected = false
+        fridgeButt.isSelected = false
+//        fetchCupItem()
         data = cupFood
         pantryTableView.reloadData()
     }
