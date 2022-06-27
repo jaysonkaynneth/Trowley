@@ -275,19 +275,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func kitchenButt(_ sender: Any) {
         kitchenButt.isSelected = !kitchenButt.isSelected
+        kitchenButt.isSelected = true
         fridgeButt.isSelected = false
         cupboardButt.isSelected = false
         fetchKitchenItem()
-        data = kitchenFood
+//        data = kitchenFood
         pantryTableView.reloadData()
     }
     
     @IBAction func fridgeButt(_ sender: Any) {
         fridgeButt.isSelected = !fridgeButt.isSelected
         kitchenButt.isSelected = false
+        fridgeButt.isSelected = true
         cupboardButt.isSelected = false
 //        fetchFridgeItem()
-        data = fridgeFood
+//        data = fridgeFood
         pantryTableView.reloadData()
     }
     
@@ -295,8 +297,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cupboardButt.isSelected = !cupboardButt.isSelected
         kitchenButt.isSelected = false
         fridgeButt.isSelected = false
+        cupboardButt.isSelected = true
 //        fetchCupItem()
-        data = cupFood
+//        data = cupFood
         pantryTableView.reloadData()
     }
 
