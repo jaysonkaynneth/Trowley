@@ -8,7 +8,7 @@
 import UIKit
 import UserNotifications
  
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
 
     var kitchenFood = [Food]()
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var unit: String?
     var index: Int?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     
     //notif
     let notificationCenter = UNUserNotificationCenter.current()
@@ -94,10 +95,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
 
-        fetchKitchenItem()
+        fetchItem()
     }
     
-    func fetchKitchenItem() {
+    func fetchItem() {
         do {
             
             data = try context.fetch(Food.fetchRequest())
@@ -109,6 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
         }
     }
+    
 //
 //    func fetchFridgeItem() {
 //        do {
@@ -177,12 +179,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
-            print("unwind")
         }
     }
     
     func updateView() {
-        fetchKitchenItem()
+        fetchItem()
         pantryTableView.reloadData()
     }
     
@@ -198,7 +199,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                success(true)
            })
-           deleteItem.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+           deleteItem.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
            
            
            let editAction = UIContextualAction(style: .normal, title: "Edit") {
@@ -208,7 +209,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                self.performSegue(withIdentifier: "toAddModal", sender: self)
            }
-           editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
+           editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
            return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
        }
     
@@ -278,7 +279,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = true
         fridgeButt.isSelected = false
         cupboardButt.isSelected = false
-        fetchKitchenItem()
+        
+//        fetchItem()
 //        data = kitchenFood
         pantryTableView.reloadData()
     }
@@ -288,7 +290,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = true
         cupboardButt.isSelected = false
-//        fetchFridgeItem()
+        
+//        fetchItem()
 //        data = fridgeFood
         pantryTableView.reloadData()
     }
@@ -298,7 +301,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = false
         cupboardButt.isSelected = true
-//        fetchCupItem()
+        
+//        fetchItem()
 //        data = cupFood
         pantryTableView.reloadData()
     }
