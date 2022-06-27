@@ -153,7 +153,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
     
-    var data = [Food]()
+    var data = [ItemList]()
     var name: String?
     var amount: Int?
     var unit: String?
@@ -163,7 +163,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func fetchItem() {
         do {
             
-            data = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
                         }

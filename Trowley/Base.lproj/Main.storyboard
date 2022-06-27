@@ -470,7 +470,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add"/>
                                 <connections>
                                     <action selector="tapAddButton" destination="xr9-MY-fO8" eventType="touchUpInside" id="pdy-ra-SZR"/>
-                                    <segue destination="rc5-Vt-O6f" kind="unwind" unwindAction="unwindToMain:" id="eYR-nO-I4k"/>
+                                    <segue destination="rc5-Vt-O6f" kind="unwind" unwindAction="unwindToMain:" id="acj-tN-hiP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-Qf-MFv">

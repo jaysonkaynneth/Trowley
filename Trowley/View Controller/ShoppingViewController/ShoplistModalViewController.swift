@@ -32,7 +32,7 @@ class ShoplistModalViewController: UIViewController {
             view.endEditing(true)
         }
     
-    var editItem : Food?
+    var editItem : ItemList?
     var name: String = ""
     var amount: Int = 0
     var unit: String = ""
@@ -90,7 +90,7 @@ class ShoplistModalViewController: UIViewController {
             amount = Int(itemAmountTF.text!) ?? 0
             unit = itemUnitTF.text ?? ""
             
-            let newFood = Food(context: context)
+            let newFood = ItemList(context: context)
                 newFood.name = name
                 newFood.amount = Int16(amount)
                 newFood.unit = unit 
