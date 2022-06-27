@@ -105,7 +105,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             self.performSegue(withIdentifier: "AddModal", sender: self)
         }
-        
+        editAction.image = UIImage(systemName: "square.and.pencil")
+        editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             
@@ -133,9 +134,18 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             self.present(alert, animated: true)
         }
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+                                           
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
-
+    
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        if let sourceViewController = unwindSegue.source as? ShoplistModalViewController {
+            updateView()
+        }
+    }
+    
     @IBOutlet weak var listTabBarItem: UITabBarItem!
     @IBOutlet weak var shopListLabel: UILabel!
     @IBOutlet weak var shopHistoryLabel: UILabel!
@@ -143,7 +153,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
     
-    var data = [Food]()
+    var data = [ItemList]()
     var name: String?
     var amount: Int?
     var unit: String?
@@ -153,7 +163,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func fetchItem() {
         do {
             
-            data = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
                         }

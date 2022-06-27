@@ -108,16 +108,16 @@ class PantryModalViewController: UIViewController {
     }
 
     @IBAction func itemLocationPicker(_ sender: Any) {
-        switch itemLocationPicker.selectedSegmentIndex {
-        case 0:
-            
-        case 1:
-
-        case 2:
-
-        default:
-            break;
-        }
+//        switch itemLocationPicker.selectedSegmentIndex {
+////        case 0:
+////            
+////        case 1:
+////
+////        case 2:
+////
+////        default:
+////            break;
+//        }
     }
     
     @IBAction func tapKeypad(_ sender: Any) {
