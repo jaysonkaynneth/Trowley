@@ -12,13 +12,16 @@
 		1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppingListCell.xib */; };
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
-		966666B62861B525000C92D1 /* PantryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966666B52861B525000C92D1 /* PantryCell.swift */; };
 		96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */; };
 		96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */; };
 		96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B082862FECF008B1E4C /* List+CoreDataClass.swift */; };
 		96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */; };
+		96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */; };
+		96B1AB5C2868200600A120F0 /* PantryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5B2868200600A120F0 /* PantryCell.swift */; };
 		96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */; };
 		96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF7D352858843A00005C60 /* TrowleyTabBar.swift */; };
+		96F7F79A2865A913005BAF82 /* ItemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */; };
+		96F7F79B2865A913005BAF82 /* ItemList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F7992865A913005BAF82 /* ItemList+CoreDataProperties.swift */; };
 		96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42532851E1DB00A83670 /* AppDelegate.swift */; };
 		96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42552851E1DB00A83670 /* SceneDelegate.swift */; };
 		96FD42582851E1DB00A83670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD42572851E1DB00A83670 /* ViewController.swift */; };
@@ -27,7 +30,6 @@
 		96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FD425F2851E1DE00A83670 /* Assets.xcassets */; };
 		96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */; };
 		D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */; };
-		D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0103F2861ACC100415027 /* PantryModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +38,16 @@
 		1FD31F13285C6209001F85BB /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
-		966666B52861B525000C92D1 /* PantryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryCell.swift; sourceTree = "<group>"; };
 		96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96711B082862FECF008B1E4C /* List+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
+		96B1AB5B2868200600A120F0 /* PantryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryCell.swift; sourceTree = "<group>"; };
 		96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListViewController.swift; sourceTree = "<group>"; };
 		96EF7D352858843A00005C60 /* TrowleyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrowleyTabBar.swift; sourceTree = "<group>"; };
+		96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		96F7F7992865A913005BAF82 /* ItemList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96FD42502851E1DB00A83670 /* Trowley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trowley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FD42532851E1DB00A83670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96FD42552851E1DB00A83670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +58,6 @@
 		96FD42622851E1DE00A83670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96FD42642851E1DE00A83670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoplistModalViewController.swift; sourceTree = "<group>"; };
-		D8A0103F2861ACC100415027 /* PantryModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 		96711B0E2862FF01008B1E4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */,
+				96F7F7992865A913005BAF82 /* ItemList+CoreDataProperties.swift */,
 				96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */,
 				96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */,
 				96711B082862FECF008B1E4C /* List+CoreDataClass.swift */,
@@ -87,15 +93,13 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		96711B10286311AD008B1E4C /* ViewController */ = {
+		96711B10286311AD008B1E4C /* ShoppingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				96FD42572851E1DB00A83670 /* ViewController.swift */,
-				D8A0103F2861ACC100415027 /* PantryModalViewController.swift */,
-				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
 				96C62FC4285586C80086B0E5 /* shoppingListViewController.swift */,
+				D82CC08B2861B4C200DF2432 /* ShoplistModalViewController.swift */,
 			);
-			path = ViewController;
+			path = ShoppingViewController;
 			sourceTree = "<group>";
 		};
 		96711B11286311DA008B1E4C /* Cell */ = {
@@ -103,11 +107,29 @@
 			children = (
 				1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */,
 				1FD31F13285C6209001F85BB /* ShoppingListCell.xib */,
-				966666B52861B525000C92D1 /* PantryCell.swift */,
+				96B1AB5B2868200600A120F0 /* PantryCell.swift */,
 				1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */,
 				1FD31F12285C6209001F85BB /* ShoppingListCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		96B1AB5628680C4E00A120F0 /* Pantry View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96FD42572851E1DB00A83670 /* ViewController.swift */,
+				96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */,
+			);
+			path = "Pantry View Controller";
+			sourceTree = "<group>";
+		};
+		96B1AB652868212500A120F0 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96B1AB5628680C4E00A120F0 /* Pantry View Controller */,
+				96711B10286311AD008B1E4C /* ShoppingViewController */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		96FD42472851E1DB00A83670 = {
@@ -129,8 +151,8 @@
 		96FD42522851E1DB00A83670 /* Trowley */ = {
 			isa = PBXGroup;
 			children = (
+				96B1AB652868212500A120F0 /* View Controller */,
 				96711B11286311DA008B1E4C /* Cell */,
-				96711B10286311AD008B1E4C /* ViewController */,
 				96711B0F2863119A008B1E4C /* Delegate */,
 				96711B0E2862FF01008B1E4C /* Model */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
@@ -218,7 +240,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */,
-				D8A010402861ACC100415027 /* PantryModalViewController.swift in Sources */,
+				96B1AB5C2868200600A120F0 /* PantryCell.swift in Sources */,
+				96F7F79B2865A913005BAF82 /* ItemList+CoreDataProperties.swift in Sources */,
+				96F7F79A2865A913005BAF82 /* ItemList+CoreDataClass.swift in Sources */,
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
 				1FD31F14285C6209001F85BB /* ShoppingListCell.swift in Sources */,
@@ -226,11 +250,11 @@
 				D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */,
 				96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
-				966666B62861B525000C92D1 /* PantryCell.swift in Sources */,
 				96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */,
 				1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */,
 				96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */,
 				96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */,
+				96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */,
 				96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */,
 				96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */,
 			);
