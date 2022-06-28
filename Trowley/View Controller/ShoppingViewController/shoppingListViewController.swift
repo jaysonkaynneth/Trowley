@@ -149,7 +149,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 self.performSegue(withIdentifier: "AddModal", sender: self)
             }
             editAction.image = UIImage(systemName: "square.and.pencil")
-            editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
+            editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
             
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
                 
@@ -175,7 +175,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 self.present(alert, animated: true)
             }
             deleteAction.image = UIImage(systemName: "trash")
-            deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+            deleteAction.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
                                                
             return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
             
@@ -188,6 +188,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 
                 self.index = indexPath.row
                 self.performSegue(withIdentifier: "toPantryModal", sender: self)
+                let deleteObject = self.data[indexPath.row]
+                self.context.delete(deleteObject)
                 
             }
             stashAction.image = UIImage(systemName: "archivebox")
@@ -217,7 +219,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 self.present(alert, animated: true)
             }
             deleteAction.image = UIImage(systemName: "trash")
-            deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+            deleteAction.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
                                                
             return UISwipeActionsConfiguration(actions: [deleteAction, stashAction])
             
@@ -236,8 +238,11 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var shopListLabel: UILabel!
     @IBOutlet weak var shopHistoryLabel: UILabel!
     
+    
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
+    @IBOutlet weak var emptyShoplist: UIImageView!
+    @IBOutlet weak var emptyCart: UIImageView!
     
     var data = [ItemList]()
     var name: String?
@@ -262,6 +267,14 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         fetchItem()
         listTable.reloadData()
         historyTable.reloadData()
+        if data.count != 0 {
+            emptyShoplist.alpha = 0
+            emptyCart.alpha = 0
+        }
+        else {
+            emptyShoplist.alpha = 100
+            emptyCart.alpha = 100
+        }
     }
     
     
