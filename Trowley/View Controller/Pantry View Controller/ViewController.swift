@@ -172,7 +172,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let currDate = datestyle.string(from: Date())
 //        let stringToDate = datestyle.date(from: self.foods![indexPath.row].expiry ?? currDate)
         let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
-        cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
+        cell.itemExpDate.text = "Expired by: \(datestyle.string(from: stringToDate!))"
         
         let tempAmount = data[indexPath.row].amount
         let tempUnit = data[indexPath.row].unit
@@ -255,7 +255,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func showDeleteWarning(for indexPath: IndexPath) {
-        let deleteAlert = UIAlertController(title: "Are you sure?", message: "This action cannot be undone", preferredStyle: UIAlertController.Style.alert)
+        let deleteAlert = UIAlertController(title: "Delete Item", message: "This action cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
@@ -278,9 +278,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.dismiss(animated: true, completion: nil)
         })
         
-        
-        deleteAlert.addAction(cancelAction)
         deleteAlert.addAction(deleteAction)
+        deleteAlert.addAction(cancelAction)
+        
         
         
         present(deleteAlert, animated: true, completion: nil)

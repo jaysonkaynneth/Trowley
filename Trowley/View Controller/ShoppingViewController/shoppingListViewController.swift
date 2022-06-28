@@ -17,10 +17,12 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
         updateView()
     }
-    
+    // MARK: - Outlet and variables
     @IBOutlet weak var listTabBarItem: UITabBarItem!
     @IBOutlet weak var shopListLabel: UILabel!
     @IBOutlet weak var shopHistoryLabel: UILabel!
+    @IBOutlet weak var toBuy: UILabel!
+    @IBOutlet weak var itemsBought: UILabel!
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
     @IBOutlet weak var emptyShoplist: UIImageView!
@@ -38,7 +40,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             updateView()
         }
     }
-    
+    // MARK: - Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +53,12 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
         shopHistoryLabel.text = "Cart"
+        
+        toBuy.font = .rounded(ofSize: 16, weight: .light)
+        toBuy.text = "Items to buy"
+        
+        itemsBought.font = .rounded(ofSize: 16, weight: .light)
+        itemsBought.text = "Items bought"
         
         listTable.delegate = self
         listTable.dataSource = self
@@ -88,7 +96,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    
+    // MARK: - Did select row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         data[indexPath.row].isBought.toggle()
@@ -101,7 +109,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
         }
     }
-    
+    // MARK: - Cell for row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cellToReturn = UITableViewCell()
@@ -148,7 +156,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
         return cellToReturn
     }
-    
+    // MARK: - Height for row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == listTable{
             if data[indexPath.row].isBought == true {
@@ -161,9 +169,9 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        return 60
+        return 44
     }
-    
+    // MARK: - Prepare for segue
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         // Create a variable that you want to send
@@ -182,7 +190,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
         
     }
-    
+    // MARK: - Cell Swipe Actions
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if tableView == listTable{
             
@@ -198,8 +206,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
                 
-                let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                let alert = UIAlertController(title: "Delete Item", message: "This action cannot be undone.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                     
                     let deleteObject = self.data[indexPath.row]
                     self.context.delete(deleteObject)
@@ -213,7 +221,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     catch{}
                 }))
                 
-                alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
                     alert.dismiss(animated: true)
                 }))
                 
@@ -242,8 +250,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
                 
-                let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                let alert = UIAlertController(title: "Delete Item", message: "This action cannot be undone.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                     
                     let deleteObject = self.data[indexPath.row]
                     self.context.delete(deleteObject)
@@ -257,7 +265,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     catch{}
                 }))
                 
-                alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
                     alert.dismiss(animated: true)
                 }))
                 
@@ -272,7 +280,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
         return UISwipeActionsConfiguration(actions: [])
     }
-    
+    // MARK: - Fetch Item
     func fetchItem() {
         do {
             data = try context.fetch(ItemList.fetchRequest())
@@ -284,7 +292,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         catch {}
         
     }
-    
+    // MARK: - Update View
     func updateView() {
         fetchItem()
         listTable.reloadData()
@@ -298,16 +306,5 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             emptyCart.alpha = 100
         }
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

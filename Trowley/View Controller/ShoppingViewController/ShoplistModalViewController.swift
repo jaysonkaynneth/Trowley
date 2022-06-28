@@ -8,7 +8,7 @@
 import UIKit
 
 class ShoplistModalViewController: UIViewController {
-    
+    // MARK: - Outlet and variables
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemAmountTF: UITextField!
     @IBOutlet weak var itemUnitTF: UITextField!
@@ -38,7 +38,7 @@ class ShoplistModalViewController: UIViewController {
     var data = [Food]()
     var foodName = [String]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    // MARK: - Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +60,7 @@ class ShoplistModalViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
+    // MARK: - Fetch item and name
     func fetchItem() {
         do {
             data = try context.fetch(Food.fetchRequest())
@@ -82,7 +82,7 @@ class ShoplistModalViewController: UIViewController {
             }
         }
     }
-    
+    // MARK: - Check form
     func checkForm()
     {
         if name != "" && amount != 0 && unit != ""
@@ -95,7 +95,7 @@ class ShoplistModalViewController: UIViewController {
             addButton.isEnabled = false
         }
     }
-    
+    // MARK: - Cancel and add buttons
     @IBAction func pressCancelBtn(_ sender: Any) {
         self.dismiss(animated: true)
         
@@ -195,16 +195,5 @@ class ShoplistModalViewController: UIViewController {
         }
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
