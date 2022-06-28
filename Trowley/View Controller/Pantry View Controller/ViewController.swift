@@ -230,6 +230,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
+                
+                //notification cancel
+                var notifIndentifierSatu: String
+                var notifIndentifierDua: String
+                let itemName = self.data[indexPath.row].name
+                let itemUnit = self.data[indexPath.row].unit
+                notifIndentifierSatu = "\(itemName!)-\(itemUnit!)"
+                notifIndentifierDua = "\(itemUnit!)-\(itemName!)"
+                //itemName!
+                print(notifIndentifierSatu)
+                print(notifIndentifierDua)
+                
+                self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notifIndentifierSatu])
+                self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notifIndentifierSatu])
+                
+                self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notifIndentifierDua])
+                self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notifIndentifierDua])
+                
+                //-----------------
+                
                 self.context.delete(self.data[indexPath.row])
                 do {
                     try self.context.save()
