@@ -34,18 +34,16 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == listTable{
+        
             data[indexPath.row].isBought.toggle()
             
             do {
                 try context.save()
-                tableView.reloadData()
+                updateView()
             }
             catch {
                 
             }
-            
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,23 +73,41 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
         
         else if tableView == historyTable {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? ShoppingHistoryCell
-           
+            let cell = (tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ShoppingListCell)!
             
-            let datestyle = DateFormatter()
-            datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
-            datestyle.locale = NSLocale.current
-            datestyle.dateFormat = "d MMM yyyy"
-           
-            cell?.listDate.text = (datestyle.string(from: Date()))
+            cell.listName.text = data[indexPath.row].name
+            let tempAmount = data[indexPath.row].amount
+            let tempUnit = data[indexPath.row].unit
+            cell.listQuantity.text = "\(String(tempAmount)) \(tempUnit ?? "")"
             
-            cell?.listStatus.text = "Completed"
+            if data[indexPath.row].isBought == true{
+                cell.checkImage.tintColor = UIColor.systemGreen
+            }
+            else{
+                cell.checkImage.tintColor = UIColor.lightGray
+            }
             
-            cellToReturn = cell!
+            cellToReturn = cell
+
             return cellToReturn
             }
         
         return cellToReturn
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == listTable{
+            if data[indexPath.row].isBought == true {
+                return 0
+            }
+        }
+        else if tableView == historyTable{
+            if data[indexPath.row].isBought == false {
+                return 0
+            }
+        }
+        
+        return 44
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -159,7 +175,6 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
     
-    var currentlist = [List]()
     var data = [ItemList]()
     var name: String?
     var amount: Int?
@@ -173,13 +188,9 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
-            
+                self.historyTable.reloadData()
             }
             
-            currentlist = try context.fetch(List.fetchRequest())
-                DispatchQueue.main.async {
-                    self.historyTable.reloadData()
-                        }
                 
             }
         catch {}
@@ -201,11 +212,11 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
         
         shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
-        shopListLabel.text = "List"
+        shopListLabel.text = "To Shop"
         
 
         shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
-        shopHistoryLabel.text = "History"
+        shopHistoryLabel.text = "Cart"
         
         listTable.delegate = self
         listTable.dataSource = self
@@ -213,7 +224,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         historyTable.delegate = self
         historyTable.dataSource = self
-        self.historyTable.register(UINib(nibName: "ShoppingHistoryCell", bundle: nil), forCellReuseIdentifier: "historyCell")
+        self.historyTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
     
         updateView()
     }
