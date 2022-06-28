@@ -13,8 +13,11 @@
 		1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppingListCell.xib */; };
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
-		96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */; };
-		96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */; };
+		76B23070286B6820000C9866 /* MainInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */; };
+		76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */; };
+		96005AAF286AC517008FFE99 /* FoodStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96005AAE286AC517008FFE99 /* FoodStruct.swift */; };
+		9614EFDC2869F98800F31046 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */; };
+		9614EFDD2869F98800F31046 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */; };
 		96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B082862FECF008B1E4C /* List+CoreDataClass.swift */; };
 		96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */; };
 		96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */; };
@@ -40,8 +43,12 @@
 		1FD31F13285C6209001F85BB /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
-		96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
-		96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceViewController.swift; sourceTree = "<group>"; };
+		76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.m4v; path = ../../Desktop/TrowleySplashVid.m4v; sourceTree = "<group>"; };
+		76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.mp4; path = ../../Downloads/TrowleySplashVid.mp4; sourceTree = "<group>"; };
+		96005AAE286AC517008FFE99 /* FoodStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStruct.swift; sourceTree = "<group>"; };
+		9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96711B082862FECF008B1E4C /* List+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96B1AB5928681F9600A120F0 /* PantryModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryModalViewController.swift; sourceTree = "<group>"; };
@@ -76,10 +83,10 @@
 		96711B0E2862FF01008B1E4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */,
+				9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */,
 				96F7F7982865A913005BAF82 /* ItemList+CoreDataClass.swift */,
 				96F7F7992865A913005BAF82 /* ItemList+CoreDataProperties.swift */,
-				96711B062862FECF008B1E4C /* Food+CoreDataClass.swift */,
-				96711B072862FECF008B1E4C /* Food+CoreDataProperties.swift */,
 				96711B082862FECF008B1E4C /* List+CoreDataClass.swift */,
 				96711B092862FECF008B1E4C /* List+CoreDataProperties.swift */,
 			);
@@ -137,6 +144,8 @@
 		96FD42472851E1DB00A83670 = {
 			isa = PBXGroup;
 			children = (
+				76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */,
+				76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */,
 				96FD42522851E1DB00A83670 /* Trowley */,
 				96FD42512851E1DB00A83670 /* Products */,
 			);
@@ -159,9 +168,11 @@
 				96711B0E2862FF01008B1E4C /* Model */,
 				1F5B065F28551E1A00028DE5 /* UIView Corner Extension.swift */,
 				96EF7D352858843A00005C60 /* TrowleyTabBar.swift */,
+				96005AAE286AC517008FFE99 /* FoodStruct.swift */,
 				96FD42592851E1DB00A83670 /* Main.storyboard */,
 				1F26E4FA2869A556007B0458 /* FullListViewController.swift */,
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
+				76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */,
 				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96FD42642851E1DE00A83670 /* Info.plist */,
 				96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */,
@@ -227,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */,
 				96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */,
 				96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */,
 				1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */,
@@ -242,25 +254,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96711B0A2862FECF008B1E4C /* Food+CoreDataClass.swift in Sources */,
 				96B1AB5C2868200600A120F0 /* PantryCell.swift in Sources */,
 				96F7F79B2865A913005BAF82 /* ItemList+CoreDataProperties.swift in Sources */,
 				96F7F79A2865A913005BAF82 /* ItemList+CoreDataClass.swift in Sources */,
 				96FD42582851E1DB00A83670 /* ViewController.swift in Sources */,
+				96005AAF286AC517008FFE99 /* FoodStruct.swift in Sources */,
+				9614EFDC2869F98800F31046 /* Food+CoreDataClass.swift in Sources */,
 				96FD42542851E1DB00A83670 /* AppDelegate.swift in Sources */,
 				1FD31F14285C6209001F85BB /* ShoppingListCell.swift in Sources */,
 				96C62FC5285586C80086B0E5 /* shoppingListViewController.swift in Sources */,
+				9614EFDD2869F98800F31046 /* Food+CoreDataProperties.swift in Sources */,
 				D82CC08C2861B4C200DF2432 /* ShoplistModalViewController.swift in Sources */,
 				96711B0C2862FECF008B1E4C /* List+CoreDataClass.swift in Sources */,
 				1F26E4FB2869A556007B0458 /* FullListViewController.swift in Sources */,
 				1F5B066028551E1A00028DE5 /* UIView Corner Extension.swift in Sources */,
-				96711B0B2862FECF008B1E4C /* Food+CoreDataProperties.swift in Sources */,
 				1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */,
 				96EF7D362858843A00005C60 /* TrowleyTabBar.swift in Sources */,
 				96FD425E2851E1DB00A83670 /* Trowley.xcdatamodeld in Sources */,
 				96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */,
 				96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */,
 				96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */,
+				76B23070286B6820000C9866 /* MainInterfaceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
