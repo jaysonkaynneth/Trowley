@@ -264,13 +264,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.context.delete(self.data[indexPath.row])
                 do {
                     try self.context.save()
-                    
                 } catch {
                     
                 }
                 self.data.remove(at: indexPath.row)
 //                self.foods!.remove(at: indexPath.row)
                 self.pantryTableView.deleteRows(at: [indexPath], with: .fade)
+                self.updateView()
             }
         }
         
