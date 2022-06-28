@@ -10,12 +10,8 @@ import UserNotifications
  
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
-
-//    var kitchenFood = [Food]()
-//    var fridgeFood = [Food]()
-//    var cupFood = [Food]()
-    var data = [Foods]()
-    var filteredData = [Food]()
+    var data = [Food]()
+//    var data = [Food]()
     var date: String?
     var amount: Double?
     var unit: String?
@@ -35,13 +31,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var yourStocksLabel: UILabel!
     @IBOutlet weak var pantryTabBarItem: UITabBarItem!
-//    @IBOutlet weak var trowleyTurtleCircle: UIImageView!
-//    @IBOutlet weak var goodLabel: UILabel!
-//    @IBOutlet weak var trowleyLabel: UILabel!
-//    @IBOutlet weak var tipsLabel: UILabel!
-    
-    //add button (buat pindah ke modal)
-//    @IBOutlet weak var addModalBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,36 +44,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //-------
         definesPresentationContext = true
         pantryTableView.reloadData()
-//        goodLabel.font = .rounded(ofSize: 22, weight: .regular)
-//        goodLabel.text = "Good Day,"
-//
-//        trowleyLabel.font = .rounded(ofSize: 34, weight: .bold)
-//        trowleyLabel.text = "Trowleys!"
-//
-//        tipsLabel.font = .rounded(ofSize: 22, weight: .bold)
-//        tipsLabel.text = "TIPS FROM ROWLEY🐢"
-//
-//        yourStocksLabel.font = .rounded(ofSize: 22, weight: .bold)
-//        yourStocksLabel.text = "YOUR STOCKS"
-//        trowleyTurtleCircle.image = UIImage(named: "TrowleyTurtle")
         
         kitchenButt.setImage(UIImage(named: "KitchenButton"), for: .normal)
         kitchenButt.setImage(UIImage(named: "KitchenButtonPressed"), for: .selected)
-//        kitchenButt.setTitle("Kitchen", for: .normal)
-//        kitchenButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-//        kitchenButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
-        
+
         fridgeButt.setImage(UIImage(named: "FridgeButton"), for: .normal)
         fridgeButt.setImage(UIImage(named: "FridgeButtonPressed"), for: .selected)
-//        fridgeButt.setTitle("Fridge", for: .normal)
-//        fridgeButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-//        fridgeButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
-        
+
         cupboardButt.setImage(UIImage(named: "CupButton"), for: .normal)
         cupboardButt.setImage(UIImage(named: "CupButtonPressed"), for: .selected)
-//        cupboardButt.setTitle("Cupboard", for: .normal)
-//        cupboardButt.titleLabel?.font =  UIFont(name: "SFCompactRounded", size: 20)
-//        cupboardButt.backgroundColor = .init(red: 202/255, green: 224/255, blue: 208/255, alpha: 100)
 
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
@@ -94,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         pantryTabBarItem.image = UIImage(named: "IconPantry")
         pantryTabBarItem.selectedImage = UIImage(named: "IconPantrySelected")
-//        pantryTabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
         
 
         fetchItem()
@@ -102,44 +70,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func fetchItem() {
         do {
-            
+//            data = data.map { $0.value }
             data = try context.fetch(Food.fetchRequest())
-            
+//            data = data.map {
+//                StructFood.init(record: $0)
+//            }
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
-                
+        
             } catch {
-                
+                print(error.localizedDescription)
         }
     }
     
+//    let filter = "location"
+//    let predicate = NSPredicate(format: "location = %@", filter)
+//    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Food")
+//    fetchRequest.predicate = predicate
 //
-//    func fetchFridgeItem() {
-//        do {
-//
-//            fridgeFood = try context.fetch(FridgeFood.fetchRequest())
-//            DispatchQueue.main.async {
-//                            self.pantryTableView.reloadData()
-//                        }
-//
-//            } catch {
-//
+//    do{
+//        let fetchedResults = try context.fetch(fetchRequest) as! [NSManagedObject]
+//        print("Fetch results")
+//        if  let task = fetchedResults.first as? TodoListItem{
+//            print(task)
 //        }
 //    }
-//
-//    func fetchCupItem() {
-//        do {
-//
-//            cupFood = try context.fetch(CupFood.fetchRequest())
-//            DispatchQueue.main.async {
-//                            self.pantryTableView.reloadData()
-//                        }
-//
-//            } catch {
-//
-//        }
-//    }
+                          
     
     override func viewWillAppear(_ animated: Bool) {
             updateView()
@@ -147,8 +104,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return countObjectbasedOnIndex().count
-        //return 1
+//        return countObjectbasedOnIndex().count
+        return data.count
 
     }
 
@@ -156,18 +113,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-        cell.itemName.text = filteredData[indexPath.row].name
+        cell.itemName.text = data[indexPath.row].name
         
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-        let stringToDate = datestyle.date(from: filteredData[indexPath.row].expiry ?? currDate)
+        let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
             
-        let tempAmount = filteredData[indexPath.row].amount
-        let tempUnit = filteredData[indexPath.row].unit
+        let tempAmount = data[indexPath.row].amount
+        let tempUnit = data[indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
     
         if Date() >= stringToDate ?? Date() {
@@ -183,15 +140,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
         }
-    }
-    
-    func countObjectbasedOnIndex() -> [Food] {
-        for (indexItem, dataFiltered) in data.enumerated() {
-            if dataFiltered.location == selectedIndex {
-                filteredData.append(dataFiltered)
-            }
-        }
-        return filteredData
     }
     
     func updateView() {
@@ -254,23 +202,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(deleteAlert, animated: true, completion: nil)
     }
     
-    
-    //segue pindah ke modal
-//    @IBAction func pressBtnAddModal(_ sender: Any) {
-//        performSegue(withIdentifier: "toAddModal", sender: nil)
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        segue.destination as? PantryModalViewController
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toAddModal"{
-            let Foods = data[index ?? 0]
+            let Food = data[index ?? 0]
 
             let destinationVC = segue.destination as! PantryModalViewController
-            destinationVC.editItem = Foods
+            destinationVC.editItem = Food
         }
     }
     
@@ -278,10 +216,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         // Create a variable that you want to send
         if segue.identifier == "toAddModal"{
-            let Foods = data[index ?? 0]
+            let Food = data[index ?? 0]
 
             let destinationVC = segue.destination as! PantryModalViewController
-            destinationVC.editItem = Foods
+            destinationVC.editItem = Food
         }
 
     }
@@ -293,7 +231,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cupboardButt.isSelected = false
         selectedIndex = 0
         fetchItem()
-//        data = kitchenFood
         pantryTableView.reloadData()
     }
     
@@ -304,7 +241,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cupboardButt.isSelected = false
         selectedIndex = 1
         fetchItem()
-//        data = fridgeFood
         pantryTableView.reloadData()
     }
     
@@ -315,18 +251,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cupboardButt.isSelected = true
         selectedIndex = 2
         fetchItem()
-//        data = cupFood
         pantryTableView.reloadData()
     }
 
     
     @IBAction func addModalBtn() {
-//        let addStockVC = storyboard?.instantiateViewController(identifier: "AddStockID") as! PantryModalViewController
-//        addStockVC.modalPresentationStyle = .popover
-//
-//        let navigationController = UINavigationController(rootViewController: addStockVC)
-//
-//        present(navigationController, animated: true)
         
         performSegue(withIdentifier: "toPantryModal", sender: nil)
     }
@@ -346,5 +275,4 @@ extension UIFont {
         return font
     }
 }
-
 
