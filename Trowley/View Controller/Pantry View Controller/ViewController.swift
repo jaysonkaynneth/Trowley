@@ -238,6 +238,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             success(true)
         })
+        deleteItem.image = UIImage(systemName: "trash")
         deleteItem.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
         
         
@@ -248,12 +249,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             self.performSegue(withIdentifier: "toAddModal", sender: self)
         }
+        editAction.image = UIImage(systemName: "square.and.pencil")
         editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
         return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
     }
     
     func showDeleteWarning(for indexPath: IndexPath) {
         let deleteAlert = UIAlertController(title: "Are you sure?", message: "This action cannot be undone", preferredStyle: UIAlertController.Style.alert)
+        
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
