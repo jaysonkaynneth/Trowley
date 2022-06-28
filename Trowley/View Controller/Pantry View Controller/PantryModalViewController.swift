@@ -27,6 +27,7 @@ class PantryModalViewController: UIViewController {
     var itemAmount: Int = 0
     var itemUnit: String = ""
     var location: Int = 0
+    var storeItem : ItemList?
     
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -41,6 +42,14 @@ class PantryModalViewController: UIViewController {
             itemAmountTF.text = String(tempAmount)
             itemUnitTF.text = editItem?.unit
             addBtn.setTitle("Edit", for: .normal)
+        }
+        
+        if storeItem != nil{
+            itemNameTF.text = storeItem?.name
+            let tempAmount = storeItem?.amount ?? 0
+            itemAmountTF.text = String(tempAmount)
+            itemUnitTF.text = storeItem?.unit
+            addBtn.setTitle("Stash", for: .normal)
         }
         
 //        validator()
