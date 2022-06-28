@@ -174,6 +174,12 @@ class PantryModalViewController: UIViewController {
         let notifMessage = "\((itemNameTF.text) ?? "") is expiring today"
         let notifTitleSeminggu = "Food is expiring soon"
         let notifMessageSeminggu = "\((self.itemNameTF.text) ?? "" ) is expiring next week, use it soon! "
+        var notifIndentifierSatu: String
+        notifIndentifierSatu = "\(self.itemNameTF.text!)-\(self.itemUnitTF.text!)"
+        //self.itemNameTF.text!
+        var notifIndentifierDua: String
+        notifIndentifierDua = "\(self.itemUnitTF.text!)-\(self.itemNameTF.text!)"
+        
         
         notificationCenter.getNotificationSettings { (settings) in
             
@@ -187,11 +193,12 @@ class PantryModalViewController: UIViewController {
                     
                     //notif hari H
                     var dateCompHariH = Calendar.current.dateComponents([.year, . month, . day,.hour, .minute], from: notifDate )
-                    dateCompHariH.setValue(19, for: .hour)
-                    dateCompHariH.setValue(58, for: .minute)
-                    
+                    dateCompHariH.setValue(15, for: .hour)
+                    dateCompHariH.setValue(0, for: .minute)
                     let triggerHariH = UNCalendarNotificationTrigger(dateMatching: dateCompHariH, repeats: false)
-                    let requestHariH = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: triggerHariH)
+                    
+                    print(notifIndentifierSatu)
+                    let requestHariH = UNNotificationRequest(identifier: notifIndentifierSatu, content: content, trigger: triggerHariH)
                     
                     self.notificationCenter.add(requestHariH) { error in
                         if(error != nil){
@@ -211,11 +218,12 @@ class PantryModalViewController: UIViewController {
                     let tempDate = Calendar.current.date(byAdding: .day, value: -7, to: notifDate )
                     var dateCompSeminggu = Calendar.current.dateComponents([.year, . month , . day, .hour , .minute], from: tempDate!)
                     
-                    dateCompSeminggu.setValue(19, for: .hour)
-                    dateCompSeminggu.setValue(58, for: .minute)
+                    dateCompSeminggu.setValue(12, for: .hour)
+                    dateCompSeminggu.setValue(24, for: .minute)
                     
                     let triggerSeminggu = UNCalendarNotificationTrigger(dateMatching: dateCompSeminggu  , repeats: false)
-                    let requestSeminggu = UNNotificationRequest(identifier: UUID().uuidString, content: contentSeminggu, trigger: triggerSeminggu)
+                    print(notifIndentifierDua)
+                    let requestSeminggu = UNNotificationRequest(identifier: notifIndentifierDua, content: contentSeminggu, trigger: triggerSeminggu)
                     
                     self.notificationCenter.add(requestSeminggu) { error in
                         if(error != nil){
