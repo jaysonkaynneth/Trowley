@@ -132,7 +132,7 @@ class ShoplistModalViewController: UIViewController {
             else{
                 let tempCount = foodName.count - 1
                 for i in 0...tempCount{
-                    if name == foodName[i]{
+                    if name.lowercased() == foodName[i].lowercased(){
                         let alert = UIAlertController(title: "Duplicate Item", message: "You already have this item in your pantry. Are you sure to add item?", preferredStyle: .alert)
                         
                             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]  _ in
