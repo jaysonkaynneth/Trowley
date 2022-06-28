@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var kitchenButt: UIButton!
     @IBOutlet weak var fridgeButt: UIButton!
     @IBOutlet weak var cupboardButt: UIButton!
-    
+    @IBOutlet weak var pantryEmpty: UIImageView!
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var yourStocksLabel: UILabel!
     @IBOutlet weak var pantryTabBarItem: UITabBarItem!
@@ -189,6 +189,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if selectedIndex == 0 {
+            if data[indexPath.row].location != 0 {
+                return 0
+            }
+        }
+        
+        if selectedIndex == 1 {
+            if data[indexPath.row].location != 1 {
+                return 0
+            }
+        }
+        
+        if selectedIndex == 2 {
+            if data[indexPath.row].location != 2 {
+                return 0
+            }
+        }
+        return 44
+    }
+    
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
@@ -198,6 +219,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateView() {
         fetchItem()
         pantryTableView.reloadData()
+        if data.count != 0{
+            pantryEmpty.alpha = 0
+        } else if data.count == 0{
+            pantryEmpty.alpha = 100
+        }
     }
     
     func tableView(_ tableView: UITableView,
@@ -286,7 +312,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = true
         fridgeButt.isSelected = false
         cupboardButt.isSelected = false
-//        selectedIndex = 0
+        selectedIndex = 0
         fetchItem()
         pantryTableView.reloadData()
     }
@@ -296,9 +322,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = true
         cupboardButt.isSelected = false
-//        selectedIndex = 1
-        data = dummyfridge
+        selectedIndex = 1
+//        data = dummyfridge
 //        fetchFridgeItem()
+        fetchItem()
         pantryTableView.reloadData()
     }
     
@@ -307,9 +334,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = false
         cupboardButt.isSelected = true
-//        selectedIndex = 2
-        data = dummycup
+        selectedIndex = 2
+//        data = dummycup
 //        fetchCupItem()
+        fetchItem()
         pantryTableView.reloadData()
     }
     

@@ -69,6 +69,10 @@
                                     <action selector="kitchenButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUz-Pc-aLv"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PantryEmpty" id="IcF-nE-UsT">
+                                <rect key="frame" x="16" y="223" width="358" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-NN-bIe">
                                 <rect key="frame" x="130" y="127" width="99" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,14 +94,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Pantry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h0-Ja-md7">
-                                <rect key="frame" x="16" y="61" width="366" height="45"/>
+                                <rect key="frame" x="20" y="65" width="366" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="34"/>
                                 <color key="textColor" red="0.32156862749999998" green="0.63529411759999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0h-p3-U5I">
-                                <rect key="frame" x="315" y="71" width="59" height="25"/>
+                                <rect key="frame" x="314" y="75" width="59" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.79215686269999996" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,6 +139,7 @@
                         <outlet property="cupboardButt" destination="hxg-mq-HBa" id="I1k-9Q-E8I"/>
                         <outlet property="fridgeButt" destination="kh7-NN-bIe" id="uK2-lR-ekT"/>
                         <outlet property="kitchenButt" destination="18u-JW-y13" id="uUu-10-6sM"/>
+                        <outlet property="pantryEmpty" destination="IcF-nE-UsT" id="xhM-OD-aze"/>
                         <outlet property="pantryTabBarItem" destination="cqW-Ql-76B" id="lU4-ZF-8SZ"/>
                         <outlet property="pantryTableView" destination="gbR-4h-cbO" id="wWc-Dr-R9P"/>
                         <outlet property="yourStocksLabel" destination="0h0-Ja-md7" id="yRA-q8-jRN"/>
@@ -701,6 +706,7 @@
         <segue reference="bW9-pv-sds"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="PantryEmpty" width="194" height="146"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
