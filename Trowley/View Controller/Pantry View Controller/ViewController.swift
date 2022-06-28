@@ -221,7 +221,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pantryTableView.reloadData()
         if data.count != 0{
             pantryEmpty.alpha = 0
-        } else if data.count == 0{
+        } else {
             pantryEmpty.alpha = 100
         }
     }
