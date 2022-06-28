@@ -12,7 +12,6 @@ class ShoplistModalViewController: UIViewController {
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemAmountTF: UITextField!
     @IBOutlet weak var itemUnitTF: UITextField!
-    
     @IBOutlet weak var addButton: UIButton!
     
     @IBAction func checkName(){
@@ -29,8 +28,8 @@ class ShoplistModalViewController: UIViewController {
     }
     
     @IBAction func tapKeypad(_ sender: Any) {
-            view.endEditing(true)
-        }
+        view.endEditing(true)
+    }
     
     var editItem : ItemList?
     var name: String = ""
@@ -39,28 +38,6 @@ class ShoplistModalViewController: UIViewController {
     var data = [Food]()
     var foodName = [String]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    func fetchItem() {
-        do {
-            data = try context.fetch(Food.fetchRequest())
-            }
-        catch {
-            print("Fail to fetch item")
-        }
-        print(data)
-    
-    }
-    
-    func fetchName() {
-        if data.count == 0 {
-        }
-        else{
-            let tempCount = data.count - 1
-            for i in 0...tempCount {
-                foodName.append(data[i].name ?? "Name")
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,127 +61,150 @@ class ShoplistModalViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func fetchItem() {
+        do {
+            data = try context.fetch(Food.fetchRequest())
+        }
+        catch {
+            print("Fail to fetch item")
+        }
+        print(data)
+        
+    }
+    
+    func fetchName() {
+        if data.count == 0 {
+        }
+        else{
+            let tempCount = data.count - 1
+            for i in 0...tempCount {
+                foodName.append(data[i].name ?? "Name")
+            }
+        }
+    }
+    
+    func checkForm()
+    {
+        if name != "" && amount != 0 && unit != ""
+        {
+            addButton.isEnabled = true
+        }
+        
+        else
+        {
+            addButton.isEnabled = false
+        }
+    }
+    
     @IBAction func pressCancelBtn(_ sender: Any) {
         self.dismiss(animated: true)
         
     }
-      
-    func checkForm()
-        {
-            if name != "" && amount != 0 && unit != ""
-            {
-                addButton.isEnabled = true
-            }
-            
-            else
-            {
-                addButton.isEnabled = false
-            }
-        }
+    
     
     @IBAction func tapAddButton()
+    {
+        let newFood = ItemList(context: context)
+        if editItem != nil
         {
-            let newFood = ItemList(context: context)
-            if editItem != nil
-            {
-                editItem?.name = name
-                editItem?.amount = Int16(amount)
-                editItem?.unit = unit
-                let deleteObject = newFood
-                self.context.delete(deleteObject)
-            }
-
-            else
-            {
-                name = itemNameTF.text ?? ""
-                amount = Int(itemAmountTF.text!) ?? 0
-                unit = itemUnitTF.text ?? ""
+            editItem?.name = name
+            editItem?.amount = Int16(amount)
+            editItem?.unit = unit
+            let deleteObject = newFood
+            self.context.delete(deleteObject)
+        }
+        
+        else
+        {
+            name = itemNameTF.text ?? ""
+            amount = Int(itemAmountTF.text!) ?? 0
+            unit = itemUnitTF.text ?? ""
             
-                newFood.name = name
-                newFood.amount = Int16(amount)
-                newFood.unit = unit
-                newFood.isBought = false
-    
-            }
-            
-            if foodName.count == 0 {
-            }
-            else{
-                let tempCount = foodName.count - 1
-                for i in 0...tempCount{
-                    if name == foodName[i]{
-                        let alert = UIAlertController(title: "Duplicate Item", message: "You already have this item in your pantry. Are you sure to add item?", preferredStyle: .alert)
-                        
-                            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]  _ in
-                            alert.dismiss(animated: true)
-                            
-                            if editItem != nil
-                            {
-                                editItem?.name = name
-                                editItem?.amount = Int16(amount)
-                                editItem?.unit = unit
-                                let deleteObject = newFood
-                                self.context.delete(deleteObject)
-                            }
-
-                            else
-                            {
-                                name = itemNameTF.text ?? ""
-                                amount = Int(itemAmountTF.text!) ?? 0
-                                unit = itemUnitTF.text ?? ""
-                            
-                                newFood.name = name
-                                newFood.amount = Int16(amount)
-                                newFood.unit = unit
-                                newFood.isBought = false
-                            }
-                            
-                            self.dismiss(animated: true)
-                        }))
-                        
-                        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
-                            let deleteObject = newFood
-                            self.context.delete(deleteObject)
-                            alert.dismiss(animated: true)
-                        }))
-                        
-                        self.present(alert, animated: true)
-                    }
-                }
-            }
-          
-            do
-            {
-                try context.save()
-                let alert = UIAlertController(title: "Success", message: "Succesfully added item!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true)
-                }))
-                present(alert, animated: true)
-            }
-            
-            catch
-            {
-                let alert = UIAlertController(title: "Fail", message: "Failed to save item.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true)
-                }))
-                present(alert, animated: true)
-            }
+            newFood.name = name
+            newFood.amount = Int16(amount)
+            newFood.unit = unit
+            newFood.isBought = false
             
         }
+        
+        if foodName.count == 0 {
+        }
+        else{
+            let tempCount = foodName.count - 1
+            for i in 0...tempCount{
+                if name.lowercased() == foodName[i].lowercased(){
+                    let alert = UIAlertController(title: "Duplicate Item", message: "You already have this item in your pantry. Are you sure to add item?", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]  _ in
+                        alert.dismiss(animated: true)
+                        
+                        if editItem != nil
+                        {
+                            editItem?.name = name
+                            editItem?.amount = Int16(amount)
+                            editItem?.unit = unit
+                            let deleteObject = newFood
+                            self.context.delete(deleteObject)
+                        }
+                        
+                        else
+                        {
+                            name = itemNameTF.text ?? ""
+                            amount = Int(itemAmountTF.text!) ?? 0
+                            unit = itemUnitTF.text ?? ""
+                            
+                            newFood.name = name
+                            newFood.amount = Int16(amount)
+                            newFood.unit = unit
+                            newFood.isBought = false
+                        }
+                        
+                        self.dismiss(animated: true)
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                        let deleteObject = newFood
+                        self.context.delete(deleteObject)
+                        alert.dismiss(animated: true)
+                    }))
+                    
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+        
+        do
+        {
+            try context.save()
+            let alert = UIAlertController(title: "Success", message: "Succesfully added item!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true)
+            }))
+            present(alert, animated: true)
+        }
+        
+        catch
+        {
+            let alert = UIAlertController(title: "Fail", message: "Failed to save item.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true)
+            }))
+            present(alert, animated: true)
+        }
+        
+    }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
