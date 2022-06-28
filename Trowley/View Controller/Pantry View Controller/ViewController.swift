@@ -8,24 +8,24 @@
 import UIKit
 import UserNotifications
 import CoreData
- 
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var data = [Food]()
     var foods: [Food]?
-//    var data = [Food]()
+    //    var data = [Food]()
     var date: String?
     var amount: Double?
     var unit: String?
     var index: Int?
     var selectedIndex = 0
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     
     //notif
     let notificationCenter = UNUserNotificationCenter.current()
     
-
+    
     @IBOutlet weak var kitchenButt: UIButton!
     @IBOutlet weak var fridgeButt: UIButton!
     @IBOutlet weak var cupboardButt: UIButton!
@@ -49,13 +49,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         kitchenButt.setImage(UIImage(named: "KitchenButton"), for: .normal)
         kitchenButt.setImage(UIImage(named: "KitchenButtonPressed"), for: .selected)
-
+        
         fridgeButt.setImage(UIImage(named: "FridgeButton"), for: .normal)
         fridgeButt.setImage(UIImage(named: "FridgeButtonPressed"), for: .selected)
-
+        
         cupboardButt.setImage(UIImage(named: "CupButton"), for: .normal)
         cupboardButt.setImage(UIImage(named: "CupButtonPressed"), for: .selected)
-
+        
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         
@@ -64,76 +64,115 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         pantryTabBarItem.image = UIImage(named: "IconPantry")
         pantryTabBarItem.selectedImage = UIImage(named: "IconPantrySelected")
-
         
-
+        
+        
         fetchItem()
     }
     
     func fetchItem() {
         do {
-//            data = data.map { $0.value }
+            //            data = data.map { $0.value }
             //            data = data.map {
             //                StructFood.init(record: $0)
             //            }
             //            data = try context.fetch(Food.fetchRequest())
             let request = Food.fetchRequest() as NSFetchRequest<Food>
-            let pred = NSPredicate(format: "location CONTAINS 0")
+            let pred = NSPredicate(format: "location = 0")
             request.predicate = pred
             self.foods = try context.fetch(Food.fetchRequest())
-            
             DispatchQueue.main.async {
-                            self.pantryTableView.reloadData()
-                        }
-        
-            } catch {
-                print(error.localizedDescription)
+                self.pantryTableView.reloadData()
+            }
+            
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-//    let filter = "location"
-//    let predicate = NSPredicate(format: "location = %@", filter)
-//    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Food")
-//    fetchRequest.predicate = predicate
-//
-//    do{
-//        let fetchedResults = try context.fetch(fetchRequest) as! [NSManagedObject]
-//        print("Fetch results")
-//        if  let task = fetchedResults.first as? TodoListItem{
-//            print(task)
-//        }
-//    }
-                          
+    func fetchFridgeItem() {
+        do {
+            //            data = data.map { $0.value }
+            //            data = data.map {
+            //                StructFood.init(record: $0)
+            //            }
+            //            data = try context.fetch(Food.fetchRequest())
+            let request = Food.fetchRequest() as NSFetchRequest<Food>
+            let pred = NSPredicate(format: "location = 1")
+            request.predicate = pred
+            self.foods = try context.fetch(Food.fetchRequest())
+            DispatchQueue.main.async {
+                self.pantryTableView.reloadData()
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func fetchCupItem() {
+        do {
+            //            data = data.map { $0.value }
+            //            data = data.map {
+            //                StructFood.init(record: $0)
+            //            }
+            //            data = try context.fetch(Food.fetchRequest())
+            let request = Food.fetchRequest() as NSFetchRequest<Food>
+            let pred = NSPredicate(format: "location = 2")
+            request.predicate = pred
+            self.foods = try context.fetch(Food.fetchRequest())
+            DispatchQueue.main.async {
+                self.pantryTableView.reloadData()
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    //    let filter = "location"
+    //    let predicate = NSPredicate(format: "location = %@", filter)
+    //    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Food")
+    //    fetchRequest.predicate = predicate
+    //
+    //    do{
+    //        let fetchedResults = try context.fetch(fetchRequest) as! [NSManagedObject]
+    //        print("Fetch results")
+    //        if  let task = fetchedResults.first as? TodoListItem{
+    //            print(task)
+    //        }
+    //    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
-            updateView()
-        }
+        updateView()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return countObjectbasedOnIndex().count
+        //        return countObjectbasedOnIndex().count
         return self.foods?.count ?? 0
-
+        
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-        cell.itemName.text = self.foods[indexPath.row].name
+        cell.itemName.text = self.foods![indexPath.row].name
         
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-        let stringToDate = datestyle.date(from: self.foods[indexPath.row].expiry ?? currDate)
+        let stringToDate = datestyle.date(from: self.foods![indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
-            
-        let tempAmount = self.foods[indexPath.row].amount
-        let tempUnit = self.foods[indexPath.row].unit
+        
+        let tempAmount = self.foods![indexPath.row].amount
+        let tempUnit = self.foods![indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
-    
+        
         if Date() >= stringToDate ?? Date() {
             cell.backgroundColor = .init(red: 218/255, green: 85/255, blue: 82/255, alpha: 100)
         } else {
@@ -155,44 +194,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView,
-                      trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-       {
-           
-           let deleteItem = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-               
-               DispatchQueue.main.async {
-                   self.showDeleteWarning(for: indexPath)
-               }
-               
-               success(true)
-           })
-           deleteItem.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
-           
-           
-           let editAction = UIContextualAction(style: .normal, title: "Edit") {
-               (action, view, completionHandler) in
-               
-               self.index = indexPath.row
-               
-               self.performSegue(withIdentifier: "toAddModal", sender: self)
-           }
-           editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
-           return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
-       }
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        
+        let deleteItem = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            
+            DispatchQueue.main.async {
+                self.showDeleteWarning(for: indexPath)
+            }
+            
+            success(true)
+        })
+        deleteItem.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
+        
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {
+            (action, view, completionHandler) in
+            
+            self.index = indexPath.row
+            
+            self.performSegue(withIdentifier: "toAddModal", sender: self)
+        }
+        editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
+        return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
+    }
     
     func showDeleteWarning(for indexPath: IndexPath) {
         let deleteAlert = UIAlertController(title: "Are you sure?", message: "This action cannot be undone", preferredStyle: UIAlertController.Style.alert)
-
+        
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
-                self.context.delete(self.foods[indexPath.row])
+                self.context.delete(self.foods![indexPath.row])
                 do {
                     try self.context.save()
-                        
-                    } catch {
-                        
-                    }
-                self.foods.remove(at: indexPath.row)
+                    
+                } catch {
+                    
+                }
+                self.foods!.remove(at: indexPath.row)
                 self.pantryTableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
@@ -201,10 +240,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.dismiss(animated: true, completion: nil)
         })
         
-
+        
         deleteAlert.addAction(cancelAction)
         deleteAlert.addAction(deleteAction)
-
+        
         
         present(deleteAlert, animated: true, completion: nil)
     }
@@ -212,23 +251,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toAddModal"{
-            let Food = foods[index ?? 0]
-
+            let Food = foods![index ?? 0]
+            
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.editItem = Food
         }
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
+        
         // Create a variable that you want to send
         if segue.identifier == "toAddModal"{
-            let Food = foods[index ?? 0]
-
+            let Food = foods![index ?? 0]
+            
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.editItem = Food
         }
-
+        
     }
     
     @IBAction func kitchenButt(_ sender: Any) {
@@ -238,7 +277,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cupboardButt.isSelected = false
         selectedIndex = 0
         fetchItem()
-        pantryTableView.reloadData()
     }
     
     @IBAction func fridgeButt(_ sender: Any) {
@@ -247,8 +285,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fridgeButt.isSelected = true
         cupboardButt.isSelected = false
         selectedIndex = 1
-        fetchItem()
-        pantryTableView.reloadData()
+        fetchFridgeItem()
     }
     
     @IBAction func cupButt(_ sender: Any) {
@@ -257,10 +294,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fridgeButt.isSelected = false
         cupboardButt.isSelected = true
         selectedIndex = 2
-        fetchItem()
-        pantryTableView.reloadData()
+        fetchCupItem()
     }
-
+    
     
     @IBAction func addModalBtn() {
         
