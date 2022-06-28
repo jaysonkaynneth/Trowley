@@ -76,8 +76,17 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         else if tableView == historyTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? ShoppingHistoryCell
-            cell?.listDate.text = "DD/MM/YYYY"
+           
+            
+            let datestyle = DateFormatter()
+            datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
+            datestyle.locale = NSLocale.current
+            datestyle.dateFormat = "d MMM yyyy"
+           
+            cell?.listDate.text = (datestyle.string(from: Date()))
+            
             cell?.listStatus.text = "Completed"
+            
             cellToReturn = cell!
             return cellToReturn
             }
@@ -122,10 +131,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     self.updateView()
                 }
                 
-                catch
-                {
-                    
-                }
+                catch{}
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -153,6 +159,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var historyTable: UITableView!
     
+    var currentlist = [List]()
     var data = [ItemList]()
     var name: String?
     var amount: Int?
@@ -166,11 +173,17 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
+            
+            }
+            
+            currentlist = try context.fetch(List.fetchRequest())
+                DispatchQueue.main.async {
+                    self.historyTable.reloadData()
                         }
                 
-            } catch {
-                
-        }
+            }
+        catch {}
+    
     }
     
     func updateView() {
