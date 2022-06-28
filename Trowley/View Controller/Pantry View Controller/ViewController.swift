@@ -8,18 +8,21 @@
 import UIKit
 import UserNotifications
  
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
 
-    var kitchenFood = [Food]()
-    var fridgeFood = [Food]()
-    var cupFood = [Food]()
-    var data = [Food]()
+//    var kitchenFood = [Food]()
+//    var fridgeFood = [Food]()
+//    var cupFood = [Food]()
+    var data = [Foods]()
+    var filteredData = [Food]()
     var date: String?
     var amount: Double?
     var unit: String?
     var index: Int?
+    var selectedIndex = 0
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     
     //notif
     let notificationCenter = UNUserNotificationCenter.current()
@@ -100,7 +103,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func fetchItem() {
         do {
             
-            kitchenFood = try context.fetch(Food.fetchRequest())
+            data = try context.fetch(Food.fetchRequest())
+            
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -110,13 +114,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+//
+//    func fetchFridgeItem() {
+//        do {
+//
+//            fridgeFood = try context.fetch(FridgeFood.fetchRequest())
+//            DispatchQueue.main.async {
+//                            self.pantryTableView.reloadData()
+//                        }
+//
+//            } catch {
+//
+//        }
+//    }
+//
+//    func fetchCupItem() {
+//        do {
+//
+//            cupFood = try context.fetch(CupFood.fetchRequest())
+//            DispatchQueue.main.async {
+//                            self.pantryTableView.reloadData()
+//                        }
+//
+//            } catch {
+//
+//        }
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
             updateView()
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return data.count
+        
+        return countObjectbasedOnIndex().count
         //return 1
 
     }
@@ -125,18 +156,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-        cell.itemName.text = data[indexPath.row].name
+        cell.itemName.text = filteredData[indexPath.row].name
         
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-        let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
+        let stringToDate = datestyle.date(from: filteredData[indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
             
-        let tempAmount = data[indexPath.row].amount
-        let tempUnit = data[indexPath.row].unit
+        let tempAmount = filteredData[indexPath.row].amount
+        let tempUnit = filteredData[indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
     
         if Date() >= stringToDate ?? Date() {
@@ -152,6 +183,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
         }
+    }
+    
+    func countObjectbasedOnIndex() -> [Food] {
+        for (indexItem, dataFiltered) in data.enumerated() {
+            if dataFiltered.location == selectedIndex {
+                filteredData.append(dataFiltered)
+            }
+        }
+        return filteredData
     }
     
     func updateView() {
@@ -171,7 +211,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                success(true)
            })
-           deleteItem.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+           deleteItem.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
            
            
            let editAction = UIContextualAction(style: .normal, title: "Edit") {
@@ -181,7 +221,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                self.performSegue(withIdentifier: "toAddModal", sender: self)
            }
-           editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
+           editAction.backgroundColor = .init(red: 53/255, green: 113/255, blue: 98/255, alpha: 100)
            return UISwipeActionsConfiguration(actions: [deleteItem, editAction])
        }
     
@@ -268,19 +308,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func kitchenButt(_ sender: Any) {
         kitchenButt.isSelected = !kitchenButt.isSelected
-        data = kitchenFood
+        kitchenButt.isSelected = true
+        fridgeButt.isSelected = false
+        cupboardButt.isSelected = false
+        selectedIndex = 0
+        fetchItem()
+//        data = kitchenFood
         pantryTableView.reloadData()
     }
     
     @IBAction func fridgeButt(_ sender: Any) {
         fridgeButt.isSelected = !fridgeButt.isSelected
-        data = fridgeFood
+        kitchenButt.isSelected = false
+        fridgeButt.isSelected = true
+        cupboardButt.isSelected = false
+        selectedIndex = 1
+        fetchItem()
+//        data = fridgeFood
         pantryTableView.reloadData()
     }
     
     @IBAction func cupButt(_ sender: Any) {
         cupboardButt.isSelected = !cupboardButt.isSelected
-        data = cupFood
+        kitchenButt.isSelected = false
+        fridgeButt.isSelected = false
+        cupboardButt.isSelected = true
+        selectedIndex = 2
+        fetchItem()
+//        data = cupFood
         pantryTableView.reloadData()
     }
 

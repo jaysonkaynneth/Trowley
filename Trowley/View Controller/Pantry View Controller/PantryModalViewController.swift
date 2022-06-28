@@ -26,7 +26,7 @@ class PantryModalViewController: UIViewController {
     var itemName: String = ""
     var itemAmount: Int = 0
     var itemUnit: String = ""
-    var location: String = ""
+    var location: Int = 0
     
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -151,7 +151,8 @@ class PantryModalViewController: UIViewController {
             addItem.expiry = date
             addItem.amount = Int16(itemAmountTF.text!) ?? 0
             addItem.unit = itemUnitTF.text
-    //        addItem.location = itemLocationPicker
+            addItem.location = Int16(itemLocationPicker.selectedSegmentIndex)
+            print(itemLocationPicker.selectedSegmentIndex)
         }
         
         do
