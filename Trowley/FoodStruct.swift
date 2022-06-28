@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Foods {
+struct StructFood: Codable {
         var amount: Int16
         var expiry: String?
         var isBought: Bool
@@ -15,4 +15,5 @@ struct Foods {
         var location: Int16
         var name: String?
         var unit: String?
+    
 }

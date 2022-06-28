@@ -152,7 +152,7 @@ class PantryModalViewController: UIViewController {
             addItem.amount = Int16(itemAmountTF.text!) ?? 0
             addItem.unit = itemUnitTF.text
             addItem.location = Int16(itemLocationPicker.selectedSegmentIndex)
-            print(itemLocationPicker.selectedSegmentIndex)
+            print(location)
         }
         
         do
