@@ -13,6 +13,8 @@
 		1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD31F13285C6209001F85BB /* ShoppingListCell.xib */; };
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
+		76B23070286B6820000C9866 /* MainInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */; };
+		76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */; };
 		96005AAF286AC517008FFE99 /* FoodStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96005AAE286AC517008FFE99 /* FoodStruct.swift */; };
 		9614EFDC2869F98800F31046 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */; };
 		9614EFDD2869F98800F31046 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */; };
@@ -41,6 +43,9 @@
 		1FD31F13285C6209001F85BB /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
+		76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceViewController.swift; sourceTree = "<group>"; };
+		76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.m4v; path = ../../Desktop/TrowleySplashVid.m4v; sourceTree = "<group>"; };
+		76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.mp4; path = ../../Downloads/TrowleySplashVid.mp4; sourceTree = "<group>"; };
 		96005AAE286AC517008FFE99 /* FoodStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStruct.swift; sourceTree = "<group>"; };
 		9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -139,6 +144,8 @@
 		96FD42472851E1DB00A83670 = {
 			isa = PBXGroup;
 			children = (
+				76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */,
+				76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */,
 				96FD42522851E1DB00A83670 /* Trowley */,
 				96FD42512851E1DB00A83670 /* Products */,
 			);
@@ -165,6 +172,7 @@
 				96FD42592851E1DB00A83670 /* Main.storyboard */,
 				1F26E4FA2869A556007B0458 /* FullListViewController.swift */,
 				96FD42612851E1DE00A83670 /* LaunchScreen.storyboard */,
+				76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */,
 				96FD425F2851E1DE00A83670 /* Assets.xcassets */,
 				96FD42642851E1DE00A83670 /* Info.plist */,
 				96FD425C2851E1DB00A83670 /* Trowley.xcdatamodeld */,
@@ -230,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */,
 				96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */,
 				96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */,
 				1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */,
@@ -265,6 +274,7 @@
 				96B1AB5A28681F9600A120F0 /* PantryModalViewController.swift in Sources */,
 				96FD42562851E1DB00A83670 /* SceneDelegate.swift in Sources */,
 				96711B0D2862FECF008B1E4C /* List+CoreDataProperties.swift in Sources */,
+				76B23070286B6820000C9866 /* MainInterfaceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

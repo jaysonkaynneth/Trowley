@@ -225,6 +225,21 @@
             </objects>
             <point key="canvasLocation" x="836.92307692307691" y="615.63981042654029"/>
         </scene>
+        <!--Main Interface View Controller-->
+        <scene sceneID="NpK-1W-9wh">
+            <objects>
+                <viewController id="wCc-wt-rnB" customClass="MainInterfaceViewController" customModule="Trowley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OBc-Me-Ww0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sJM-YE-AAV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLo-Vv-2WC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1369" y="232"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3lM-kX-46a">
             <objects>
