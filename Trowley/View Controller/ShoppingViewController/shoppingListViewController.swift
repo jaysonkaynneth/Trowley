@@ -18,6 +18,51 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         updateView()
     }
     
+    @IBOutlet weak var listTabBarItem: UITabBarItem!
+    @IBOutlet weak var shopListLabel: UILabel!
+    @IBOutlet weak var shopHistoryLabel: UILabel!
+    @IBOutlet weak var listTable: UITableView!
+    @IBOutlet weak var historyTable: UITableView!
+    @IBOutlet weak var emptyShoplist: UIImageView!
+    @IBOutlet weak var emptyCart: UIImageView!
+    
+    var data = [ItemList]()
+    var name: String?
+    var amount: Int?
+    var unit: String?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var index: Int?
+    
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        if let sourceViewController = unwindSegue.source as? ShoplistModalViewController {
+            updateView()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        listTabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait")
+        listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
+        
+        shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopListLabel.text = "To Shop"
+        
+        
+        shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopHistoryLabel.text = "Cart"
+        
+        listTable.delegate = self
+        listTable.dataSource = self
+        self.listTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
+        
+        historyTable.delegate = self
+        historyTable.dataSource = self
+        self.historyTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
+        
+        updateView()
+    }
+    
     //segue pindah ke modal
     @IBAction func addModalBtn(_ sender: Any) {
         performSegue(withIdentifier: "toShoplistModal", sender: nil)
@@ -27,14 +72,14 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         if segue.identifier == "AddModal"{
             let Foods = data[index ?? 0]
-
+            
             let destinationVC = segue.destination as! ShoplistModalViewController
             destinationVC.editItem = Foods
         }
         
         if segue.identifier == "toPantryModal"{
             let Foods = data[index ?? 0]
-
+            
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.storeItem = Foods
         }
@@ -46,15 +91,15 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-            data[indexPath.row].isBought.toggle()
+        data[indexPath.row].isBought.toggle()
+        
+        do {
+            try context.save()
+            updateView()
+        }
+        catch {
             
-            do {
-                try context.save()
-                updateView()
-            }
-            catch {
-                
-            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,9 +123,9 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             cellToReturn = cell
-
+            
             return cellToReturn
-            }
+        }
         
         else if tableView == historyTable {
             let cell = (tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ShoppingListCell)!
@@ -98,9 +143,9 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             cellToReturn = cell
-
+            
             return cellToReturn
-            }
+        }
         return cellToReturn
     }
     
@@ -120,23 +165,23 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
+        
         // Create a variable that you want to send
         if segue.identifier == "AddModal"{
             let Foods = data[index ?? 0]
-
+            
             let destinationVC = segue.destination as! ShoplistModalViewController
             destinationVC.editItem = Foods
         }
         
         if segue.identifier == "toPantryModal"{
             let Foods = data[index ?? 0]
-
+            
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.storeItem = Foods
         }
         
-        }
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if tableView == listTable{
@@ -158,7 +203,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     
                     let deleteObject = self.data[indexPath.row]
                     self.context.delete(deleteObject)
-        
+                    
                     do
                     {
                         try self.context.save()
@@ -176,7 +221,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
             deleteAction.image = UIImage(systemName: "trash")
             deleteAction.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
-                                               
+            
             return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
             
         }
@@ -202,7 +247,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     
                     let deleteObject = self.data[indexPath.row]
                     self.context.delete(deleteObject)
-        
+                    
                     do
                     {
                         try self.context.save()
@@ -220,7 +265,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
             deleteAction.image = UIImage(systemName: "trash")
             deleteAction.backgroundColor = .init(red: 197/255, green: 69/255, blue: 69/255, alpha: 100)
-                                               
+            
             return UISwipeActionsConfiguration(actions: [deleteAction, stashAction])
             
             
@@ -228,39 +273,16 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return UISwipeActionsConfiguration(actions: [])
     }
     
-    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
-        if let sourceViewController = unwindSegue.source as? ShoplistModalViewController {
-            updateView()
-        }
-    }
-    
-    @IBOutlet weak var listTabBarItem: UITabBarItem!
-    @IBOutlet weak var shopListLabel: UILabel!
-    @IBOutlet weak var shopHistoryLabel: UILabel!
-    
-    
-    @IBOutlet weak var listTable: UITableView!
-    @IBOutlet weak var historyTable: UITableView!
-    @IBOutlet weak var emptyShoplist: UIImageView!
-    @IBOutlet weak var emptyCart: UIImageView!
-    
-    var data = [ItemList]()
-    var name: String?
-    var amount: Int?
-    var unit: String?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var index: Int?
-    
     func fetchItem() {
         do {
             data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
                 self.historyTable.reloadData()
-                }
             }
+        }
         catch {}
-    
+        
     }
     
     func updateView() {
@@ -278,40 +300,14 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        listTabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait")
-        listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
-        
-        shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
-        shopListLabel.text = "To Shop"
-        
-
-        shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
-        shopHistoryLabel.text = "Cart"
-        
-        listTable.delegate = self
-        listTable.dataSource = self
-        self.listTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
-        
-        historyTable.delegate = self
-        historyTable.dataSource = self
-        self.historyTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
-        
-        updateView()
-    }
-    
-
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
