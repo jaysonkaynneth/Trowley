@@ -11,14 +11,16 @@ import UserNotifications
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
 
-    var kitchenFood = [Food]()
-    var fridgeFood = [Food]()
-    var cupFood = [Food]()
-    var data = [Food]()
+//    var kitchenFood = [Food]()
+//    var fridgeFood = [Food]()
+//    var cupFood = [Food]()
+    var data = [Foods]()
+    var filteredData = [Food]()
     var date: String?
     var amount: Double?
     var unit: String?
     var index: Int?
+    var selectedIndex = 0
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     
@@ -102,6 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             
             data = try context.fetch(Food.fetchRequest())
+            
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -143,8 +146,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return data.count
+        
+        return countObjectbasedOnIndex().count
         //return 1
 
     }
@@ -153,18 +156,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-        cell.itemName.text = data[indexPath.row].name
+        cell.itemName.text = filteredData[indexPath.row].name
         
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-        let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
+        let stringToDate = datestyle.date(from: filteredData[indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
             
-        let tempAmount = data[indexPath.row].amount
-        let tempUnit = data[indexPath.row].unit
+        let tempAmount = filteredData[indexPath.row].amount
+        let tempUnit = filteredData[indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
     
         if Date() >= stringToDate ?? Date() {
@@ -180,6 +183,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let sourceViewController = unwindSegue.source as? PantryModalViewController {
             updateView()
         }
+    }
+    
+    func countObjectbasedOnIndex() -> [Food] {
+        for (indexItem, dataFiltered) in data.enumerated() {
+            if dataFiltered.location == selectedIndex {
+                filteredData.append(dataFiltered)
+            }
+        }
+        return filteredData
     }
     
     func updateView() {
@@ -279,8 +291,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = true
         fridgeButt.isSelected = false
         cupboardButt.isSelected = false
-        
-//        fetchItem()
+        selectedIndex = 0
+        fetchItem()
 //        data = kitchenFood
         pantryTableView.reloadData()
     }
@@ -290,8 +302,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = true
         cupboardButt.isSelected = false
-        
-//        fetchItem()
+        selectedIndex = 1
+        fetchItem()
 //        data = fridgeFood
         pantryTableView.reloadData()
     }
@@ -301,8 +313,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         kitchenButt.isSelected = false
         fridgeButt.isSelected = false
         cupboardButt.isSelected = true
-        
-//        fetchItem()
+        selectedIndex = 2
+        fetchItem()
 //        data = cupFood
         pantryTableView.reloadData()
     }
