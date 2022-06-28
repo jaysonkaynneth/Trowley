@@ -116,7 +116,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        return 44
+        return 60
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
