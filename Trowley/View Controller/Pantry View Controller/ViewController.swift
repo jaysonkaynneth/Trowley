@@ -7,10 +7,12 @@
 
 import UIKit
 import UserNotifications
+import CoreData
  
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var data = [Food]()
+    var foods: [Food]?
 //    var data = [Food]()
     var date: String?
     var amount: Double?
@@ -71,10 +73,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func fetchItem() {
         do {
 //            data = data.map { $0.value }
-            data = try context.fetch(Food.fetchRequest())
-//            data = data.map {
-//                StructFood.init(record: $0)
-//            }
+            //            data = data.map {
+            //                StructFood.init(record: $0)
+            //            }
+            //            data = try context.fetch(Food.fetchRequest())
+            let request = Food.fetchRequest() as NSFetchRequest<Food>
+            let pred = NSPredicate(format: "location CONTAINS 0")
+            request.predicate = pred
+            self.foods = try context.fetch(Food.fetchRequest())
+            
             DispatchQueue.main.async {
                             self.pantryTableView.reloadData()
                         }
@@ -105,7 +112,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
 //        return countObjectbasedOnIndex().count
-        return data.count
+        return self.foods?.count ?? 0
 
     }
 
@@ -113,18 +120,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-        cell.itemName.text = data[indexPath.row].name
+        cell.itemName.text = self.foods[indexPath.row].name
         
         let datestyle = DateFormatter()
         datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-        let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
+        let stringToDate = datestyle.date(from: self.foods[indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "expiry date: \(datestyle.string(from: stringToDate!))"
             
-        let tempAmount = data[indexPath.row].amount
-        let tempUnit = data[indexPath.row].unit
+        let tempAmount = self.foods[indexPath.row].amount
+        let tempUnit = self.foods[indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
     
         if Date() >= stringToDate ?? Date() {
@@ -178,14 +185,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
-                self.context.delete(self.data[indexPath.row])
+                self.context.delete(self.foods[indexPath.row])
                 do {
                     try self.context.save()
                         
                     } catch {
                         
                     }
-                self.data.remove(at: indexPath.row)
+                self.foods.remove(at: indexPath.row)
                 self.pantryTableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
@@ -205,7 +212,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toAddModal"{
-            let Food = data[index ?? 0]
+            let Food = foods[index ?? 0]
 
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.editItem = Food
@@ -216,7 +223,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         // Create a variable that you want to send
         if segue.identifier == "toAddModal"{
-            let Food = data[index ?? 0]
+            let Food = foods[index ?? 0]
 
             let destinationVC = segue.destination as! PantryModalViewController
             destinationVC.editItem = Food
