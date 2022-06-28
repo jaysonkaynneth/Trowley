@@ -219,6 +219,7 @@
                         <outlet property="shopHistoryLabel" destination="DM4-mb-mAI" id="OYt-W1-keY"/>
                         <outlet property="shopListLabel" destination="j9l-hE-CxR" id="zZB-22-wmN"/>
                         <segue destination="xr9-MY-fO8" kind="presentation" identifier="AddModal" id="lXk-wl-42O"/>
+                        <segue destination="Gck-W6-Vej" kind="presentation" identifier="toPantryModal" id="bW9-pv-sds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlm-Sg-KF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -697,7 +698,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="lXk-wl-42O"/>
-        <segue reference="0Go-zd-xLR"/>
+        <segue reference="bW9-pv-sds"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

@@ -14,6 +14,10 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         updateView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        updateView()
+    }
+    
     //segue pindah ke modal
     @IBAction func addModalBtn(_ sender: Any) {
         performSegue(withIdentifier: "toShoplistModal", sender: nil)
@@ -26,6 +30,13 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
             let destinationVC = segue.destination as! ShoplistModalViewController
             destinationVC.editItem = Foods
+        }
+        
+        if segue.identifier == "toPantryModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! PantryModalViewController
+            destinationVC.storeItem = Foods
         }
     }
     
@@ -118,6 +129,13 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
             destinationVC.editItem = Foods
         }
         
+        if segue.identifier == "toPantryModal"{
+            let Foods = data[index ?? 0]
+
+            let destinationVC = segue.destination as! PantryModalViewController
+            destinationVC.storeItem = Foods
+        }
+        
         }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -169,8 +187,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 (action, view, completionHandler) in
                 
                 self.index = indexPath.row
+                self.performSegue(withIdentifier: "toPantryModal", sender: self)
                 
-                self.performSegue(withIdentifier: "AddModal", sender: self)
             }
             stashAction.image = UIImage(systemName: "archivebox")
             stashAction.backgroundColor = .init(red: 162/255, green: 170/255, blue: 173/255, alpha: 100)

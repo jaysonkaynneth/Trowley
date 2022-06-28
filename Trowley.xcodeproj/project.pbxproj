@@ -14,7 +14,6 @@
 		1FEF534E285E6F74009F9E23 /* ShoppingHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */; };
 		1FEF534F285E6F74009F9E23 /* ShoppingHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */; };
 		76B23070286B6820000C9866 /* MainInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */; };
-		76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */; };
 		96005AAF286AC517008FFE99 /* FoodStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96005AAE286AC517008FFE99 /* FoodStruct.swift */; };
 		9614EFDC2869F98800F31046 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */; };
 		9614EFDD2869F98800F31046 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */; };
@@ -44,8 +43,6 @@
 		1FEF534C285E6F74009F9E23 /* ShoppingHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCell.swift; sourceTree = "<group>"; };
 		1FEF534D285E6F74009F9E23 /* ShoppingHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHistoryCell.xib; sourceTree = "<group>"; };
 		76B2306F286B6820000C9866 /* MainInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceViewController.swift; sourceTree = "<group>"; };
-		76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.m4v; path = ../../Desktop/TrowleySplashVid.m4v; sourceTree = "<group>"; };
-		76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = TrowleySplashVid.mp4; path = ../../Downloads/TrowleySplashVid.mp4; sourceTree = "<group>"; };
 		96005AAE286AC517008FFE99 /* FoodStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStruct.swift; sourceTree = "<group>"; };
 		9614EFDA2869F98800F31046 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9614EFDB2869F98800F31046 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -144,8 +141,6 @@
 		96FD42472851E1DB00A83670 = {
 			isa = PBXGroup;
 			children = (
-				76B23073286B6CC1000C9866 /* TrowleySplashVid.mp4 */,
-				76B23071286B6A56000C9866 /* TrowleySplashVid.m4v */,
 				96FD42522851E1DB00A83670 /* Trowley */,
 				96FD42512851E1DB00A83670 /* Products */,
 			);
@@ -238,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B23074286B6CC1000C9866 /* TrowleySplashVid.mp4 in Resources */,
 				96FD42632851E1DE00A83670 /* LaunchScreen.storyboard in Resources */,
 				96FD42602851E1DE00A83670 /* Assets.xcassets in Resources */,
 				1FD31F15285C6209001F85BB /* ShoppingListCell.xib in Resources */,
