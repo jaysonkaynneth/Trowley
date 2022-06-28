@@ -48,7 +48,6 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         var cellToReturn = UITableViewCell()
         
         if tableView == listTable{
@@ -91,7 +90,6 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
             return cellToReturn
             }
-        
         return cellToReturn
     }
     
@@ -123,43 +121,91 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction = UIContextualAction(style: .normal, title: "Edit") {
-            (action, view, completionHandler) in
+        if tableView == listTable{
             
-            self.index = indexPath.row
+            let editAction = UIContextualAction(style: .normal, title: "Edit") {
+                (action, view, completionHandler) in
+                
+                self.index = indexPath.row
+                
+                self.performSegue(withIdentifier: "AddModal", sender: self)
+            }
+            editAction.image = UIImage(systemName: "square.and.pencil")
+            editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
             
-            self.performSegue(withIdentifier: "AddModal", sender: self)
-        }
-        editAction.image = UIImage(systemName: "square.and.pencil")
-        editAction.backgroundColor = .init(red: 39/255, green: 82/255, blue: 72/255, alpha: 100)
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+                
+                let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                    
+                    let deleteObject = self.data[indexPath.row]
+                    self.context.delete(deleteObject)
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
-            
-            let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                    do
+                    {
+                        try self.context.save()
+                        self.updateView()
+                    }
+                    
+                    catch{}
+                }))
                 
-                let deleteObject = self.data[indexPath.row]
-                self.context.delete(deleteObject)
-    
-                do
-                {
-                    try self.context.save()
-                    self.updateView()
-                }
+                alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                    alert.dismiss(animated: true)
+                }))
                 
-                catch{}
-            }))
+                self.present(alert, animated: true)
+            }
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+                                               
+            return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
             
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
-                alert.dismiss(animated: true)
-            }))
-            
-            self.present(alert, animated: true)
         }
-        deleteAction.image = UIImage(systemName: "trash")
-        deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
-                                           
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        
+        if tableView == historyTable{
+            
+            let stashAction = UIContextualAction(style: .normal, title: "Stash") {
+                (action, view, completionHandler) in
+                
+                self.index = indexPath.row
+                
+                self.performSegue(withIdentifier: "AddModal", sender: self)
+            }
+            stashAction.image = UIImage(systemName: "archivebox")
+            stashAction.backgroundColor = .init(red: 162/255, green: 170/255, blue: 173/255, alpha: 100)
+            
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+                
+                let alert = UIAlertController(title: "Item Deletion", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                    
+                    let deleteObject = self.data[indexPath.row]
+                    self.context.delete(deleteObject)
+        
+                    do
+                    {
+                        try self.context.save()
+                        self.updateView()
+                    }
+                    
+                    catch{}
+                }))
+                
+                alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                    alert.dismiss(animated: true)
+                }))
+                
+                self.present(alert, animated: true)
+            }
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = .init(red: 192/255, green: 77/255, blue: 121/255, alpha: 100)
+                                               
+            return UISwipeActionsConfiguration(actions: [deleteAction, stashAction])
+            
+            
+        }
+        return UISwipeActionsConfiguration(actions: [])
     }
     
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
@@ -184,14 +230,11 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func fetchItem() {
         do {
-            
             data = try context.fetch(ItemList.fetchRequest())
             DispatchQueue.main.async {
                 self.listTable.reloadData()
                 self.historyTable.reloadData()
-            }
-            
-                
+                }
             }
         catch {}
     
@@ -225,7 +268,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         historyTable.delegate = self
         historyTable.dataSource = self
         self.historyTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
-    
+        
         updateView()
     }
     
