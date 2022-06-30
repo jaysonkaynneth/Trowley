@@ -82,6 +82,7 @@ class ShoplistModalViewController: UIViewController {
             }
         }
     }
+    
     // MARK: - Check form
     func checkForm()
     {
