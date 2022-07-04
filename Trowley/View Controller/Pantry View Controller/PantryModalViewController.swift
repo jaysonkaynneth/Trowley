@@ -203,8 +203,8 @@ class PantryModalViewController: UIViewController {
                     
                     //notif hari H
                     var dateCompHariH = Calendar.current.dateComponents([.year, . month, . day,.hour, .minute], from: notifDate )
-                    dateCompHariH.setValue(15, for: .hour)
-                    dateCompHariH.setValue(0, for: .minute)
+                    dateCompHariH.setValue(0, for: .hour)
+                    dateCompHariH.setValue(1, for: .minute)
                     let triggerHariH = UNCalendarNotificationTrigger(dateMatching: dateCompHariH, repeats: false)
                     
                     print(notifIndentifierSatu)
@@ -228,8 +228,8 @@ class PantryModalViewController: UIViewController {
                     let tempDate = Calendar.current.date(byAdding: .day, value: -7, to: notifDate )
                     var dateCompSeminggu = Calendar.current.dateComponents([.year, . month , . day, .hour , .minute], from: tempDate!)
                     
-                    dateCompSeminggu.setValue(12, for: .hour)
-                    dateCompSeminggu.setValue(24, for: .minute)
+                    dateCompSeminggu.setValue(0, for: .hour)
+                    dateCompSeminggu.setValue(1, for: .minute)
                     
                     let triggerSeminggu = UNCalendarNotificationTrigger(dateMatching: dateCompSeminggu  , repeats: false)
                     print(notifIndentifierDua)

@@ -79,9 +79,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //                StructFood.init(record: $0)
             //            }
             //            data = try context.fetch(Food.fetchRequest())
-//            let request = Food.fetchRequest() as NSFetchRequest<Food>
-//            let pred = NSPredicate(format: "location = 0")
-//            request.predicate = pred
+            //            let request = Food.fetchRequest() as NSFetchRequest<Food>
+            //            let pred = NSPredicate(format: "location = 0")
+            //            request.predicate = pred
             data = try context.fetch(Food.fetchRequest())
             DispatchQueue.main.async {
                 self.pantryTableView.reloadData()
@@ -153,7 +153,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //        return countObjectbasedOnIndex().count
-//        return self.foods?.count ?? 0
+        //        return self.foods?.count ?? 0
         return data.count
         
     }
@@ -162,7 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = (tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as? PantryCell)!
         cell.selectionStyle = .none
         
-//        cell.itemName.text = self.foods![indexPath.row].name
+        //        cell.itemName.text = self.foods![indexPath.row].name
         cell.itemName.text = data[indexPath.row].name
         
         let datestyle = DateFormatter()
@@ -170,14 +170,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         datestyle.locale = NSLocale.current
         datestyle.dateFormat = "d MMM yyyy"
         let currDate = datestyle.string(from: Date())
-//        let stringToDate = datestyle.date(from: self.foods![indexPath.row].expiry ?? currDate)
+        //        let stringToDate = datestyle.date(from: self.foods![indexPath.row].expiry ?? currDate)
         let stringToDate = datestyle.date(from: data[indexPath.row].expiry ?? currDate)
         cell.itemExpDate.text = "Expired by: \(datestyle.string(from: stringToDate!))"
         
         let tempAmount = data[indexPath.row].amount
         let tempUnit = data[indexPath.row].unit
-//        let tempAmount = self.foods![indexPath.row].amount
-//        let tempUnit = self.foods![indexPath.row].unit
+        //        let tempAmount = self.foods![indexPath.row].amount
+        //        let tempUnit = self.foods![indexPath.row].unit
         cell.itemStock.text = "\(String(tempAmount)) \(tempUnit ?? "")"
         
         if Date() >= stringToDate ?? Date() {
@@ -260,7 +260,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
-//                self.context.delete(self.foods![indexPath.row])
+                
+                //notification cancel
+                var notifIndentifierSatu: String
+                var notifIndentifierDua: String
+                let itemName = self.data[indexPath.row].name
+                let itemUnit = self.data[indexPath.row].unit
+                let itemAmount = self.data[indexPath.row].amount
+                notifIndentifierSatu = "\(itemName!)-\(itemUnit!)"
+                notifIndentifierDua = "\(itemUnit!)-\(itemName!)"
+                //itemName!
+                print(notifIndentifierSatu)
+                print(notifIndentifierDua)
+                
+                self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notifIndentifierSatu])
+                self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notifIndentifierSatu])
+                
+                self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notifIndentifierDua])
+                self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notifIndentifierDua])
+                
+                //-----------------------------------------------------
+                
+                
+                //                self.context.delete(self.foods![indexPath.row])
                 self.context.delete(self.data[indexPath.row])
                 do {
                     try self.context.save()
@@ -268,7 +290,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                 }
                 self.data.remove(at: indexPath.row)
-//                self.foods!.remove(at: indexPath.row)
+                //                self.foods!.remove(at: indexPath.row)
                 self.pantryTableView.deleteRows(at: [indexPath], with: .fade)
                 self.updateView()
             }
@@ -289,7 +311,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toAddModal"{
-//            let Food = foods![index ?? 0]
+            //            let Food = foods![index ?? 0]
             let Food = data[index ?? 0]
             
             let destinationVC = segue.destination as! PantryModalViewController
@@ -301,7 +323,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Create a variable that you want to send
         if segue.identifier == "toAddModal"{
-//            let Food = foods![index ?? 0]
+            //            let Food = foods![index ?? 0]
             let Food = data[index ?? 0]
             
             let destinationVC = segue.destination as! PantryModalViewController
@@ -326,8 +348,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fridgeButt.isSelected = true
         cupboardButt.isSelected = false
         selectedIndex = 1
-//        data = dummyfridge
-//        fetchFridgeItem()
+        //        data = dummyfridge
+        //        fetchFridgeItem()
         fetchItem()
         pantryTableView.reloadData()
     }
@@ -338,8 +360,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fridgeButt.isSelected = false
         cupboardButt.isSelected = true
         selectedIndex = 2
-//        data = dummycup
-//        fetchCupItem()
+        //        data = dummycup
+        //        fetchCupItem()
         fetchItem()
         pantryTableView.reloadData()
     }
