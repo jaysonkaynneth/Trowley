@@ -177,6 +177,7 @@ class ShoplistModalViewController: UIViewController {
         do
         {
             try context.save()
+            NotificationCenter.default.post(name: Notification.Name("update"), object: self)
             let alert = UIAlertController(title: "Success", message: "Succesfully added item!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                 self.navigationController?.popViewController(animated: true)

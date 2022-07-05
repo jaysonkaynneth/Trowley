@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         
-        yourStocksLabel.font = .rounded(ofSize: 32, weight: .bold)
+        yourStocksLabel.font = .rounded(ofSize: 34, weight: .bold)
         yourStocksLabel.text = "My Pantry"
         
         pantryTabBarItem.image = UIImage(named: "IconPantry")

@@ -47,17 +47,17 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         listTabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait")
         listTabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
         
-        shopListLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopListLabel.font = .rounded(ofSize: 34, weight: .bold)
         shopListLabel.text = "To Shop"
         
         
-        shopHistoryLabel.font = .rounded(ofSize: 32, weight: .bold)
+        shopHistoryLabel.font = .rounded(ofSize: 34, weight: .bold)
         shopHistoryLabel.text = "Cart"
         
-        toBuy.font = .rounded(ofSize: 16, weight: .light)
+        toBuy.font = .rounded(ofSize: 17, weight: .light)
         toBuy.text = "Items to buy"
         
-        itemsBought.font = .rounded(ofSize: 16, weight: .light)
+        itemsBought.font = .rounded(ofSize: 17, weight: .light)
         itemsBought.text = "Items bought"
         
         listTable.delegate = self
@@ -69,6 +69,8 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         self.historyTable.register(UINib(nibName: "ShoppingListCell", bundle: nil), forCellReuseIdentifier: "listCell")
         
         updateView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: NSNotification.Name("update"), object: nil)
     }
     
     //segue pindah ke modal
@@ -296,7 +298,7 @@ class shoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     // MARK: - Update View
-    func updateView() {
+    @objc func updateView() {
         fetchItem()
         listTable.reloadData()
         historyTable.reloadData()
