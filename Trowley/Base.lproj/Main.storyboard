@@ -65,7 +65,6 @@
                                 <rect key="frame" x="23" y="127" width="99" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Kitchen"/>
                                 <connections>
                                     <action selector="kitchenButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUz-Pc-aLv"/>
                                 </connections>
@@ -75,7 +74,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Cupboard"/>
                                 <connections>
                                     <action selector="cupButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sCq-1y-rC8"/>
                                 </connections>
@@ -125,7 +123,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Fridge"/>
                                 <connections>
                                     <action selector="fridgeButt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="189-Zf-GnG"/>
                                 </connections>
@@ -546,7 +543,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="lXk-wl-42O"/>
-        <segue reference="bW9-pv-sds"/>
+        <segue reference="0Go-zd-xLR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="EmptyCart" width="194" height="146"/>
